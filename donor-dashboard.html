@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donor Portal &amp; Digital Passport — Red Hope &amp; Stackly</title>
+  <meta name="description" content="Personal donor portal displaying digital blood donor passport, vital health screening metrics, donation history timeline, and next appointment scheduling.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/webp" href="logo_0104.webp">
+</head>
+<body>
+
+  <div class="dash-layout">
+    
+    <!-- Mobile Sidebar Backdrop -->
+    <div class="dash-sidebar-backdrop"></div>
+
+    <!-- ======================================================================
+         SIDEBAR NAVIGATION
+         ====================================================================== -->
+    <aside class="dash-sidebar">
+      <div class="dash-sidebar-header">
+        <a href="index.html" class="brand-logo" aria-label="Return to Homepage">
+          <img src="logo_0104.webp" alt="Stackly Logo" class="brand-logo-img" style="height: 38px;">
+        </a>
+        <button class="dash-sidebar-close" aria-label="Close sidebar">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div style="padding: 0 20px 8px;">
+        <span class="dash-portal-tag tag-donor">Donor Portal</span>
+      </div>
+
+      <nav class="dash-sidebar-nav">
+        <div class="dash-nav-category">My Profile</div>
+        <a href="donor-dashboard.html" class="dash-nav-item active">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          <span>My Lifesaver Hub</span>
+        </a>
+        <a href="#passportSection" class="dash-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"></rect><line x1="7" y1="8" x2="17" y2="8"></line><line x1="7" y1="12" x2="13" y2="12"></line><circle cx="16" cy="14" r="2"></circle></svg>
+          <span>Digital Passport</span>
+          <span class="dash-nav-badge" style="background: rgba(5, 150, 105, 0.15); color: var(--success-emerald);">Gold</span>
+        </a>
+        <a href="#vitalsSection" class="dash-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+          <span>Health &amp; Vitals</span>
+        </a>
+        <a href="#historySection" class="dash-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Donation History</span>
+          <span class="dash-nav-badge">42 Pints</span>
+        </a>
+
+        <div class="dash-nav-category">Quick Actions</div>
+        <a href="javascript:void(0)" onclick="openBookModal()" class="dash-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <span>+ Book Donation</span>
+        </a>
+        <a href="javascript:void(0)" onclick="alert('Digital Apple & Google Wallet pass has been sent to your registered email.')" class="dash-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+          <span>Wallet Card (.pkpass)</span>
+        </a>
+        <a href="index.html" class="dash-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          <span>Public Website</span>
+        </a>
+        <a href="admin-dashboard.html" class="dash-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <span>Switch to Admin View</span>
+        </a>
+      </nav>
+
+      <div class="dash-sidebar-footer">
+        <div class="dash-user-snippet">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=70" alt="Donor Profile" class="dash-user-avatar">
+          <div class="dash-user-info">
+            <div class="dash-user-name" id="donorUserDisplayName">David Sterling</div>
+            <div class="dash-user-role">O- Negative Donor</div>
+          </div>
+        </div>
+        <button class="dash-logout-btn" onclick="logoutUser()" title="Logout">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+        </button>
+      </div>
+    </aside>
+
+    <!-- ======================================================================
+         MAIN CONTENT AREA
+         ====================================================================== -->
+    <main class="dash-main">
+      
+      <!-- Topbar -->
+      <header class="dash-topbar">
+        <div class="dash-topbar-left">
+          <button class="dash-sidebar-toggle" aria-label="Open sidebar menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div class="dash-status-indicator">
+            <span class="status-dot-green"></span>
+            <span>Eligibility Status: <strong>Open to Donate</strong></span>
+          </div>
+        </div>
+
+        <div class="dash-topbar-right">
+          <div class="dash-status-indicator" style="background: var(--blood-soft); color: var(--blood-primary);">
+            <span>Blood Group: <strong>O- Negative</strong></span>
+          </div>
+
+          <button class="dash-icon-btn" onclick="alert('Notification from St. Jude Trauma Center:\nYour whole blood unit donated on Oct 14 was utilized in emergency surgical care. A mother and baby are doing well thanks to your gift!')" aria-label="Notifications">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <span class="dash-icon-dot"></span>
+          </button>
+
+          <a href="login.html" class="btn btn-outline btn-sm" onclick="logoutUser()">Logout</a>
+        </div>
+      </header>
+
+      <!-- Dashboard Content -->
+      <div class="dash-content">
+        
+        <!-- Welcome Hero Banner -->
+        <section class="dash-hero-banner">
+          <div class="dash-hero-text">
+            <h1 id="donorWelcomeTitle">Welcome Back, David!</h1>
+            <p>You hold the <strong>Gold Lifesaver Tier</strong>. Your 42 donations have saved up to <strong>126 lives</strong> across regional hospital trauma centers and pediatric cancer units.</p>
+          </div>
+          <div class="dash-hero-actions">
+            <button class="btn btn-primary" onclick="openBookModal()" style="background: #FFFFFF; color: var(--blood-base); border: none;">
+              📅 Schedule Next Donation
+            </button>
+            <button class="btn btn-outline" onclick="alert('Digital Donor Pass saved! Present your QR code at check-in kiosk.')" style="color: #FFFFFF; border-color: rgba(255,255,255,0.4);">
+              📱 View Wallet Pass
+            </button>
+          </div>
+        </section>
+
+        <!-- KPI Metrics Grid -->
+        <section class="dash-kpi-grid">
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-top">
+              <span class="dash-kpi-label">Lifetime Donations</span>
+              <div class="dash-kpi-icon kpi-icon-red">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+              </div>
+            </div>
+            <div class="dash-kpi-value">42 Pints</div>
+            <div class="dash-kpi-footer">
+              <span class="trend-up">~18.9 Liters</span>
+              <span>of universal red blood cells given</span>
+            </div>
+          </div>
+
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-top">
+              <span class="dash-kpi-label">Estimated Lives Impacted</span>
+              <div class="dash-kpi-icon kpi-icon-green">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </div>
+            </div>
+            <div class="dash-kpi-value" style="color: var(--success-emerald);">126 Lives</div>
+            <div class="dash-kpi-footer">
+              <span>Each pint can save up to 3 patients</span>
+            </div>
+          </div>
+
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-top">
+              <span class="dash-kpi-label">Donor Tier</span>
+              <div class="dash-kpi-icon kpi-icon-amber">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+            </div>
+            <div class="dash-kpi-value">Gold Rank</div>
+            <div class="dash-kpi-footer">
+              <span class="trend-up">42/50 Pints</span>
+              <span>8 pints until Platinum Hero</span>
+            </div>
+          </div>
+
+          <div class="dash-kpi-card">
+            <div class="dash-kpi-top">
+              <span class="dash-kpi-label">Next Eligibility</span>
+              <div class="dash-kpi-icon kpi-icon-blue">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+              </div>
+            </div>
+            <div class="dash-kpi-value" style="color: var(--success-emerald);">Ready Now</div>
+            <div class="dash-kpi-footer">
+              <span>56-day whole blood rest completed</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Two Column Grid: Digital Passport & Vital Health Screenings -->
+        <div class="dash-2col-grid" id="passportSection">
+          
+          <!-- Digital Passport Card Mockup -->
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <div>
+                <h2 class="dash-card-title">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="color: var(--blood-primary);"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                  Official Digital Donor Passport
+                </h2>
+                <p class="dash-card-desc">Scan this verified digital token at any clinic check-in kiosk for 1-tap paperless registration.</p>
+              </div>
+              <button class="btn btn-outline btn-sm" onclick="alert('Digital Card saved to wallet!')">Download .PNG</button>
+            </div>
+
+            <!-- Realistic Wallet Card Graphic -->
+            <div class="donor-card-mockup">
+              <div class="donor-card-head">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                  <span style="font-weight: 800; font-size: 1.1rem; letter-spacing: 0.04em;">STACKLY LIFESAVER</span>
+                </div>
+                <span style="background: rgba(255,255,255,0.22); padding: 4px 10px; border-radius: 99px; font-size: 0.75rem; font-weight: 800;">GOLD LIFESAVER</span>
+              </div>
+
+              <div class="donor-card-blood-type">O NEGATIVE</div>
+              <div class="donor-card-type-desc">Universal Red Blood Cell Donor (High Demand)</div>
+
+              <div class="donor-card-footer">
+                <div>
+                  <div style="font-size: 0.72rem; color: #FFE4E6; text-transform: uppercase;">Verified Donor</div>
+                  <div style="font-weight: 800; font-size: 1.15rem;">David Sterling</div>
+                  <div style="font-size: 0.8rem; color: #FFC0CB;">ID: STK-94281-US</div>
+                </div>
+
+                <div style="text-align: right; background: #FFFFFF; padding: 6px; border-radius: 8px; display: inline-block;">
+                  <!-- QR Code Mockup -->
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="#000000">
+                    <path d="M3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm13-2h3v2h-3v-2zm-5 0h2v3h-2v-3zm2 3h3v2h-3v-2zm3 2h3v3h-3v-3zm-5 1h2v2h-2v-2zm2 0h1v2h-1v-2zm-2-3h2v1h-2v-1z"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div style="background: var(--secondary-light); border-radius: 12px; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between;">
+              <span style="font-size: 0.85rem; color: var(--secondary-slate);">
+                <strong>Next Milestone:</strong> 8 more donations to unlock the Platinum Hero Commemorative Pin.
+              </span>
+              <a href="javascript:void(0)" onclick="openBookModal()" style="font-size: 0.85rem; font-weight: 700; color: var(--blood-primary);">Book Now &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Free Vital Health Screenings Card -->
+          <div class="dash-card" id="vitalsSection">
+            <div class="dash-card-header">
+              <div>
+                <h2 class="dash-card-title">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--blood-primary);"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                  Free Vital Health Screenings
+                </h2>
+                <p class="dash-card-desc">Screening benchmarks recorded by our medical team during your last donation visit on Oct 14, 2026.</p>
+              </div>
+            </div>
+
+            <div class="vital-grid">
+              <div class="vital-card">
+                <span class="vital-label">Hemoglobin</span>
+                <div class="vital-value" style="color: var(--blood-primary);">14.5 g/dL</div>
+                <div class="vital-status">Optimal (13.0 - 17.5)</div>
+              </div>
+
+              <div class="vital-card">
+                <span class="vital-label">Blood Pressure</span>
+                <div class="vital-value" style="color: var(--success-emerald);">118 / 76</div>
+                <div class="vital-status">Normal Baseline</div>
+              </div>
+
+              <div class="vital-card">
+                <span class="vital-label">Resting Pulse</span>
+                <div class="vital-value">68 bpm</div>
+                <div class="vital-status">Healthy Athlete</div>
+              </div>
+
+              <div class="vital-card">
+                <span class="vital-label">Total Cholesterol</span>
+                <div class="vital-value">172 mg/dL</div>
+                <div class="vital-status">Desirable (&lt;200)</div>
+              </div>
+            </div>
+
+            <div style="margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--secondary-border);">
+              <h4 style="font-size: 0.92rem; margin-bottom: 6px;">Did you know?</h4>
+              <p style="font-size: 0.85rem; color: var(--secondary-muted); line-height: 1.6; margin: 0;">
+                Because you are <strong>O-Negative</strong>, your red blood cells lack A, B, and Rh antigens. In an emergency room trauma, when doctors have zero minutes to crossmatch blood, they reach for your units first.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Donation History & Hospital Infusion Timeline -->
+        <section class="dash-card" id="historySection">
+          <div class="dash-card-header">
+            <div>
+              <h2 class="dash-card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--blood-primary);"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                Donation Journey &amp; Hospital Impact Map
+              </h2>
+              <p class="dash-card-desc">Transparent tracing of your biological gift: from donor lounge collection to the patient bedside transfusion.</p>
+            </div>
+            <button class="btn btn-outline btn-sm" onclick="alert('Official medical donation certificate generated and sent to your email.')">Download Certificate</button>
+          </div>
+
+          <div class="dash-timeline">
+            <!-- Item 1 -->
+            <div class="timeline-item">
+              <div class="timeline-icon-wrap">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-title">Whole Blood Donation (450ml) — Central Cold Chain Suite</div>
+                <div class="timeline-subtitle">Collected on October 14, 2026 • Verified by Lab NAT Screening • Batch #WB-8841</div>
+                <div class="timeline-impact">
+                  🏥 <strong>Impact Verified:</strong> Transfused on Oct 16 to an emergency obstetric hemorrhage patient at St. Jude Trauma Center. Mother and child in healthy recovery!
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="timeline-item">
+              <div class="timeline-icon-wrap">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-title">Double Red Blood Cells (Apheresis) — Metro Mobile Coach Drive</div>
+                <div class="timeline-subtitle">Collected on August 10, 2026 • Verified by Lab NAT Screening • Batch #DR-4912</div>
+                <div class="timeline-impact">
+                  🏥 <strong>Impact Verified:</strong> Utilized in open-heart bypass surgery at Metro General Hospital.
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="timeline-item">
+              <div class="timeline-icon-wrap">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+              </div>
+              <div class="timeline-content">
+                <div class="timeline-title">Whole Blood Donation (450ml) — Civic Center Community Drive</div>
+                <div class="timeline-subtitle">Collected on May 22, 2026 • Verified by Lab NAT Screening • Batch #WB-2109</div>
+                <div class="timeline-impact">
+                  🏥 <strong>Impact Verified:</strong> Transfused to a 4-year-old Acute Lymphoblastic Leukemia patient at City Children's Hospital.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Donor Lounges & Mobile Bus Showcase -->
+        <section class="dash-card">
+          <div class="dash-card-header">
+            <div>
+              <h2 class="dash-card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--blood-primary);"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                Comfort Donor Suites &amp; Mobile Centers
+              </h2>
+              <p class="dash-card-desc">Every donation center offers memory foam reclining donor beds, gourmet refreshment bars, and licensed phlebotomists.</p>
+            </div>
+          </div>
+
+          <div class="dash-media-grid">
+            <div class="dash-media-card">
+              <img src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&w=500&q=70" alt="Mobile blood bus clinic">
+              <div class="dash-media-card-body">
+                <div class="dash-media-card-title">Metro Mobile Donor Bus</div>
+                <p class="dash-media-card-desc">Book your appointment aboard our luxury mobile clinic near your workplace.</p>
+              </div>
+            </div>
+
+            <div class="dash-media-card">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=70" alt="Mother and child saved">
+              <div class="dash-media-card-body">
+                <div class="dash-media-card-title">Surviving Warriors</div>
+                <p class="dash-media-card-desc">Meet the pediatric patients and families your universal blood has helped save.</p>
+              </div>
+            </div>
+
+            <div class="dash-media-card">
+              <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=500&q=70" alt="Post-donation snacks">
+              <div class="dash-media-card-body">
+                <div class="dash-media-card-title">Gourmet Post-Donation Lounge</div>
+                <p class="dash-media-card-desc">Complimentary organic fruit juices, iron-rich snacks, and recovery pastries.</p>
+              </div>
+            </div>
+
+            <div class="dash-media-card">
+              <img src="https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=500&q=70" alt="Safe sterile collection equipment">
+              <div class="dash-media-card-body">
+                <div class="dash-media-card-title">100% Sterile Single-Use Kit</div>
+                <p class="dash-media-card-desc">Every donation utilizes single-use, pre-sterilized equipment ensuring total safety.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ======================================================================
+       INTERACTIVE APPOINTMENT BOOKING MODAL
+       ====================================================================== -->
+  <div class="dash-modal-backdrop" id="bookModal">
+    <div class="dash-modal-card">
+      <button class="dash-modal-close" onclick="closeBookModal()">&times;</button>
+      <h3 style="font-size: 1.35rem; color: var(--secondary-dark); margin-bottom: 6px;">Book Your Next Donation Slot</h3>
+      <p style="font-size: 0.85rem; color: var(--secondary-muted); margin-bottom: 20px;">Takes only 30 minutes total. Help replenish critically low regional supplies.</p>
+      
+      <form onsubmit="handleBookSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Donation Center / Clinic Location</label>
+          <select class="form-control" required>
+            <option value="stackly">Stackly Headquarters (MMR Complex, Salem)</option>
+            <option value="metro">Metro Mobile Bus Coach (Tech City Plaza)</option>
+            <option value="north">North Valley Platelet Pavilion</option>
+            <option value="west">Westside Community Blood Center</option>
+          </select>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div class="form-group">
+            <label class="form-label">Donation Type</label>
+            <select class="form-control" required>
+              <option value="whole">Whole Blood (450ml)</option>
+              <option value="platelets">Apheresis Platelets (SDP)</option>
+              <option value="plasma">Plasma</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Preferred Date</label>
+            <input type="date" class="form-control" id="appointmentDate" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Preferred Time Window</label>
+          <select class="form-control" required>
+            <option value="09:00">09:00 AM — Morning Window</option>
+            <option value="11:30">11:30 AM — Midday Window</option>
+            <option value="14:00">02:00 PM — Afternoon Window</option>
+            <option value="16:30">04:30 PM — Evening Window</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 10px;">
+          Confirm Donation Slot
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Load session user details
+    try {
+      const session = JSON.parse(localStorage.getItem('bloodBankUser'));
+      if (session && session.name) {
+        document.getElementById('donorUserDisplayName').textContent = session.name;
+        document.getElementById('donorWelcomeTitle').textContent = `Welcome Back, ${session.name}!`;
+      }
+    } catch(e) {}
+
+    // Pre-fill tomorrow's date
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const dateInput = document.getElementById('appointmentDate');
+    if (dateInput) {
+      dateInput.value = tomorrow.toISOString().split('T')[0];
+    }
+
+    function openBookModal() {
+      document.getElementById('bookModal').classList.add('active');
+    }
+
+    function closeBookModal() {
+      document.getElementById('bookModal').classList.remove('active');
+    }
+
+    function handleBookSubmit(e) {
+      e.preventDefault();
+      alert('Appointment Confirmed! We have reserved your donation slot. A calendar invitation and preparation guidelines (hydration & iron tips) have been sent to your email.');
+      closeBookModal();
+    }
+
+    function logoutUser() {
+      localStorage.removeItem('bloodBankUser');
+      window.location.href = 'login.html';
+    }
+  </script>
+</body>
+</html>

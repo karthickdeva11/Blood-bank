@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blood Science &amp; Stories — Red Hope Transfusion Medicine Journal</title>
+  <meta name="description" content="Discover clinical insights, donor nutrition guides, myth-busting facts, and real survivor stories on the Red Hope Blood Bank Journal.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/webp" href="logo_0104.webp">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       SECTION 1: MAIN NAVIGATION HEADER
+       ========================================================================== -->
+
+  <header class="header-main">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+        <img src="logo_0104.webp" alt="Stackly Logo" class="brand-logo-img">
+      </a>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="blog.html" class="nav-link active">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+        <button class="mobile-nav-toggle" aria-label="Open Navigation Menu">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Full-Screen Mobile Drawer -->
+    <div class="mobile-menu-drawer">
+      <div class="mobile-drawer-header">
+        <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+          <img src="logo_0104.webp" alt="Stackly Logo" class="brand-logo-img">
+        </a>
+        <button class="mobile-drawer-close" aria-label="Close Navigation Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <ul class="mobile-menu-list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html" class="mobile-login-link">Login</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       SECTION 2: BLOG HERO BANNER & SEARCH BAR
+       ========================================================================== -->
+  <section class="page-hero-banner">
+    <div class="container">
+      <div class="breadcrumbs-list">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Knowledge Hub &amp; Stories</span>
+      </div>
+      <h1 class="page-hero-title">Blood Science, Nutrition &amp; Human Stories</h1>
+      <p class="page-hero-desc">
+        Explore clinical hematology breakthroughs, pre-donation nutritional tips, medical myth-busting, and the remarkable stories of patients saved by community donors.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 3: FEATURED ANCHOR STORY
+       ========================================================================== -->
+  <section class="section-padding" style="background-color: #FFFFFF;">
+    <div class="container">
+      <div style="background: var(--secondary-light); border: 1px solid var(--secondary-border); border-radius: var(--radius-xl); overflow: hidden; display: grid; grid-template-columns: 1.15fr 1fr; gap: 0; box-shadow: var(--shadow-lg);">
+        <div>
+          <!-- Optimized Unsplash medical science image < 80kb -->
+          <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=550&q=65" alt="Blood centrifuge separator in clinical laboratory" style="width: 100%; height: 100%; object-fit: cover; min-height: 380px;" loading="lazy">
+        </div>
+        <div style="padding: 44px; display: flex; flex-direction: column; justify-content: center;">
+          <span class="section-badge" style="margin-bottom: 12px; align-self: flex-start;">FEATURED CLINICAL ESSAY</span>
+          <h2 style="font-size: 1.85rem; color: var(--secondary-dark); line-height: 1.25; margin-bottom: 14px;">
+            The 42-Day Miracle: How a Single Whole Blood Unit is Split to Save Three Lives
+          </h2>
+          <p style="font-size: 1rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 24px;">
+            Walk inside our high-security bio-fractionation vault to trace the journey of 450ml of donated whole blood: from centrifugal separation to nucleic acid testing, refrigeration, and ICU infusion.
+          </p>
+          <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--secondary-border); padding-top: 16px;">
+            <div style="font-size: 0.85rem; color: var(--secondary-muted);">
+              By <strong>Dr. Julian Vance, MD</strong> • 7 min read
+            </div>
+            <a href="#articleDetails" class="btn btn-primary btn-sm" onclick="alert('Full research publication available for download in our PDF portal.')">Read Full Essay</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 4: FILTERABLE ARTICLE GRID
+       ========================================================================== -->
+  <section class="section-padding" style="background: var(--secondary-light);">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 40px;">
+        <span class="section-badge">Curated Articles</span>
+        <h2 class="section-title">Explore by Medical Category</h2>
+        <p class="section-subtitle">Filter through our peer-reviewed hematology articles and donor lifestyle guides.</p>
+      </div>
+
+      <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 40px;">
+        <button class="inv-tab-btn blog-filter-btn active" data-filter="all">All Topics</button>
+        <button class="inv-tab-btn blog-filter-btn" data-filter="nutrition">Donor Health &amp; Nutrition</button>
+        <button class="inv-tab-btn blog-filter-btn" data-filter="science">Transfusion Science</button>
+        <button class="inv-tab-btn blog-filter-btn" data-filter="stories">Survivor Stories</button>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+        <!-- Card 1 -->
+        <div class="blog-card" data-cat="nutrition" style="background: #FFFFFF; border-radius: var(--radius-lg); border: 1px solid var(--secondary-border); overflow: hidden; display: flex; flex-direction: column;">
+          <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=500&q=70" alt="Iron rich foods and fresh hydration for donors" style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
+          <div style="padding: 24px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span style="font-size: 0.75rem; font-weight: 800; color: var(--blood-primary); text-transform: uppercase;">NUTRITION &amp; RECOVERY</span>
+              <h3 style="font-size: 1.25rem; margin: 8px 0 10px;">The 48-Hour Iron Protocol Before Donating</h3>
+              <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">How combining vitamin C with non-heme iron prevents mild deferrals and optimizes post-donation hemoglobin recovery.</p>
+            </div>
+            <div style="margin-top: 18px; font-size: 0.82rem; color: var(--secondary-muted);">5 min read • Nutrition Desk</div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="blog-card" data-cat="science" style="background: #FFFFFF; border-radius: var(--radius-lg); border: 1px solid var(--secondary-border); overflow: hidden; display: flex; flex-direction: column;">
+          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=500&q=70" alt="Laboratory testing of blood sample under blue light" style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
+          <div style="padding: 24px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span style="font-size: 0.75rem; font-weight: 800; color: var(--blood-primary); text-transform: uppercase;">LAB BIOLOGY</span>
+              <h3 style="font-size: 1.25rem; margin: 8px 0 10px;">What is Individual Donor NAT Testing?</h3>
+              <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">Why molecular nucleic acid testing has virtually eliminated transfusion-transmitted viral infections over the last decade.</p>
+            </div>
+            <div style="margin-top: 18px; font-size: 0.82rem; color: var(--secondary-muted);">6 min read • Lab Reference</div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="blog-card" data-cat="stories" style="background: #FFFFFF; border-radius: var(--radius-lg); border: 1px solid var(--secondary-border); overflow: hidden; display: flex; flex-direction: column;">
+          <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=500&q=70" alt="Happy pediatric patient in hospital ward" style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
+          <div style="padding: 24px; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span style="font-size: 0.75rem; font-weight: 800; color: var(--blood-primary); text-transform: uppercase;">PATIENT RESILIENCE</span>
+              <h3 style="font-size: 1.25rem; margin: 8px 0 10px;">Living With Beta Thalassemia Major</h3>
+              <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">How 22-year-old college senior Liam relies on dedicated B-positive donors every 21 days to pursue his architecture degree.</p>
+            </div>
+            <div style="margin-top: 18px; font-size: 0.82rem; color: var(--secondary-muted);">4 min read • Community Spotlight</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 5: INTERACTIVE BLOOD MYTHS VS FACTS DEBUNKER
+       ========================================================================== -->
+  <section class="section-padding" style="background-color: #FFFFFF;">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 40px;">
+        <span class="section-badge">Clinical Truths</span>
+        <h2 class="section-title">Blood Donation Myths vs. Scientific Facts</h2>
+        <p class="section-subtitle">Don't let misconceptions prevent you from saving a life. Here are the clinical facts.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+        <div style="background: #FFF1F2; border: 1px solid var(--blood-tint); border-radius: var(--radius-lg); padding: 28px;">
+          <div style="color: var(--blood-crimson); font-weight: 800; font-size: 0.85rem; margin-bottom: 6px;">❌ MYTH: "Donating weakens my immune system."</div>
+          <h4 style="font-size: 1.15rem; color: var(--blood-dark); margin-bottom: 8px;">Fact: Plasma regenerates in 24-48 hours.</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">Your bone marrow continuously generates new erythrocytes, leukocytes, and platelets. The body replenishes lost plasma fluid within 24 hours.</p>
+        </div>
+
+        <div style="background: #FFF1F2; border: 1px solid var(--blood-tint); border-radius: var(--radius-lg); padding: 28px;">
+          <div style="color: var(--blood-crimson); font-weight: 800; font-size: 0.85rem; margin-bottom: 6px;">❌ MYTH: "You can contract an infection while donating."</div>
+          <h4 style="font-size: 1.15rem; color: var(--blood-dark); margin-bottom: 8px;">Fact: 100% Sterile, Single-Use Sealed Needles.</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">Every collection kit is opened brand-new in front of you and immediately destroyed in biohazard sharps incinerators after use.</p>
+        </div>
+
+        <div style="background: #FFF1F2; border: 1px solid var(--blood-tint); border-radius: var(--radius-lg); padding: 28px;">
+          <div style="color: var(--blood-crimson); font-weight: 800; font-size: 0.85rem; margin-bottom: 6px;">❌ MYTH: "It takes hours out of my busy workday."</div>
+          <h4 style="font-size: 1.15rem; color: var(--blood-dark); margin-bottom: 8px;">Fact: Actual Phlebotomy takes only 8–10 minutes.</h4>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6;">The total appointment from check-in and mini health check to refreshments takes around 45 minutes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 6: COMPLETE DONOR DIET & IRON PREPARATION GUIDE
+       ========================================================================== -->
+  <section class="section-padding" style="background: var(--secondary-light);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+        <div>
+          <span class="section-badge">Nutritional Preparation</span>
+          <h2 class="section-title">The Complete Pre-Donation Nutrition Checklist</h2>
+          <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 24px;">
+            A healthy donation starts the day before! Eating the right balanced foods ensures your hemoglobin test passes easily and prevents lightheadedness.
+          </p>
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div style="background: #FFFFFF; padding: 18px; border-radius: var(--radius-md); border-left: 3px solid var(--success-emerald);">
+              <h4 style="font-size: 1rem; margin-bottom: 4px;">Hydrate Heavily (16–20 oz Extra Water)</h4>
+              <p style="font-size: 0.88rem; color: var(--text-secondary);">Drink plenty of water and clear juices 2 to 3 hours prior. Well-hydrated veins make phlebotomy smooth and swift.</p>
+            </div>
+            <div style="background: #FFFFFF; padding: 18px; border-radius: var(--radius-md); border-left: 3px solid var(--blood-primary);">
+              <h4 style="font-size: 1rem; margin-bottom: 4px;">Consume Iron-Rich Foods + Vitamin C</h4>
+              <p style="font-size: 0.88rem; color: var(--text-secondary);">Spinach, lentils, lean poultry, and beans paired with citrus fruits boost iron bio-absorption.</p>
+            </div>
+            <div style="background: #FFFFFF; padding: 18px; border-radius: var(--radius-md); border-left: 3px solid var(--urgent-amber);">
+              <h4 style="font-size: 1rem; margin-bottom: 4px;">Avoid Fatty Meals Immediately Before</h4>
+              <p style="font-size: 0.88rem; color: var(--text-secondary);">High-fat foods (burgers, fries) can turn blood plasma lipemic (milky), interfering with viral laboratory tests.</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <!-- Optimized Unsplash healthy fruits vegetables image < 75kb -->
+          <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=550&q=65" alt="Fresh iron rich vegetables and citrus fruits on wooden cutting board" style="border-radius: var(--radius-xl); box-shadow: var(--shadow-xl);" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 7: RARE BLOOD TYPES DEEP DIVE (Rh-Null & Bombay Phenotype)
+       ========================================================================== -->
+  <section class="section-padding" style="background: linear-gradient(135deg, #180406 0%, #2D080A 100%); color: #FFFFFF;">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 40px;">
+        <span class="section-badge" style="background: rgba(255,255,255,0.1); color: #FFD4D8; border-color: rgba(255,255,255,0.2);">Rare Hematology</span>
+        <h2 class="section-title" style="color: #FFFFFF;">The World of "Golden Blood" &amp; Ultra-Rare Antigens</h2>
+        <p class="section-subtitle" style="color: #FFA4AD;">
+          Fewer than 50 people in known medical history possess Rh-null blood. Learn why rare donors are the guardians of global medicine.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px;">
+        <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); padding: 32px; border-radius: var(--radius-lg);">
+          <h3 style="color: #FF6B7F; font-size: 1.3rem; margin-bottom: 8px;">Rh-Null ("Golden Blood")</h3>
+          <p style="font-size: 0.92rem; color: #E2E8F0; line-height: 1.6;">Lacks all 61 antigens in the Rh system. It is considered universal red blood for anyone with rare Rh mutations, but the donor can only ever receive Rh-null blood.</p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); padding: 32px; border-radius: var(--radius-lg);">
+          <h3 style="color: #FF6B7F; font-size: 1.3rem; margin-bottom: 8px;">Bombay Phenotype (Oh)</h3>
+          <p style="font-size: 0.92rem; color: #E2E8F0; line-height: 1.6;">Individuals who do not express the fundamental H antigen. They test falsely as O-group on routine screens, but develop severe antibodies against standard O-group blood.</p>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); padding: 32px; border-radius: var(--radius-lg);">
+          <h3 style="color: #FF6B7F; font-size: 1.3rem; margin-bottom: 8px;">International Cryo Exchange</h3>
+          <p style="font-size: 0.92rem; color: #E2E8F0; line-height: 1.6;">Red Hope participates in the World Health Organization international rare blood registry, airlifting frozen units across oceans when a matched patient is in surgery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 8: VISUAL INFOGRAPHICS & DOWNLOADABLE GUIDES
+       ========================================================================== -->
+  <section class="section-padding" style="background-color: #FFFFFF;">
+    <div class="container text-center">
+      <span class="section-badge">Educational Assets</span>
+      <h2 class="section-title">Downloadable Guides &amp; Resources</h2>
+      <p class="section-subtitle" style="margin-bottom: 40px;">Clinical reference handbooks for student nurses, first-time donors, and school biology teachers.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+        <div style="border: 1px solid var(--secondary-border); border-radius: var(--radius-lg); padding: 28px; background: var(--secondary-light); text-align: left;">
+          <h4 style="font-size: 1.15rem; color: var(--blood-base); margin-bottom: 8px;">PDF: First-Time Donor Companion</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 16px;">Step-by-step handbook answering every anxiety, needle question, and recovery tip.</p>
+          <a href="#" class="btn btn-outline btn-sm" onclick="alert('Downloading First-Time Donor Guide (PDF)...')">Download PDF (2.4 MB)</a>
+        </div>
+
+        <div style="border: 1px solid var(--secondary-border); border-radius: var(--radius-lg); padding: 28px; background: var(--secondary-light); text-align: left;">
+          <h4 style="font-size: 1.15rem; color: var(--blood-base); margin-bottom: 8px;">PDF: Hemoglobin &amp; Iron Nutrition</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 16px;">Meal plan with grocery lists designed to maintain robust ferritin stores year-round.</p>
+          <a href="#" class="btn btn-outline btn-sm" onclick="alert('Downloading Hemoglobin & Iron Nutrition Guide (PDF)...')">Download PDF (1.8 MB)</a>
+        </div>
+
+        <div style="border: 1px solid var(--secondary-border); border-radius: var(--radius-lg); padding: 28px; background: var(--secondary-light); text-align: left;">
+          <h4 style="font-size: 1.15rem; color: var(--blood-base); margin-bottom: 8px;">PDF: Corporate Drive Organizer Kit</h4>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 16px;">Everything human resources coordinators need to promote a campus donation drive.</p>
+          <a href="#" class="btn btn-outline btn-sm" onclick="alert('Downloading Corporate Drive Kit (PDF)...')">Download PDF (3.1 MB)</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 9: PATIENT SPOTLIGHT: VOICES OF SURVIVAL
+       ========================================================================== -->
+  <section class="section-padding" style="background: var(--secondary-light);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+        <div>
+          <!-- Optimized Unsplash grateful patient portrait < 75kb -->
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=550&q=65" alt="Smiling mother with child saved by emergency transfusion" style="border-radius: var(--radius-xl); box-shadow: var(--shadow-xl);" loading="lazy">
+        </div>
+        <div>
+          <span class="section-badge">Survivor Spotlight</span>
+          <h2 class="section-title">"I Survived Amniotic Fluid Embolism Because of 14 Strangers."</h2>
+          <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 16px;">
+            "During the delivery of my son Lucas, I suffered severe obstetrical hemorrhage and DIC. In under 90 minutes, doctors infused 14 units of packed red cells, fresh frozen plasma, and cryoprecipitate."
+          </p>
+          <p style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px;">
+            "Today, Lucas is starting kindergarten. Every birthday we celebrate is a gift from the nameless heroes who gave an hour of their time at Red Hope."
+          </p>
+          <div>
+            <strong style="color: var(--blood-base); font-size: 1.1rem;">— Claire Davenport</strong><br>
+            <span style="font-size: 0.85rem; color: var(--secondary-muted);">Patient Advocate &amp; Mother</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 10: SCIENTIFIC NEWSLETTER & SITE FOOTER
+       ========================================================================== -->
+  <section class="camps-banner-section">
+    <div class="container camps-inner-flex">
+      <div class="camps-text">
+        <h3>Subscribe to the Red Hope Transfusion Medicine Bulletin</h3>
+        <p>Monthly digest of clinical trials, donor health tips, and regional inventory alerts.</p>
+      </div>
+      <div>
+        <form style="display: flex; gap: 10px;" onsubmit="event.preventDefault(); alert('Subscribed to Red Hope Scientific Bulletin!');">
+          <input type="email" placeholder="Your work or personal email" style="padding: 12px 18px; border-radius: var(--radius-full); border: none; outline: none; width: 280px;" required>
+          <button type="submit" class="btn btn-outline-white">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" aria-label="Stackly Home" style="margin-bottom: 16px;">
+            <img src="logo_0104.webp" alt="Stackly Logo" class="brand-logo-img footer-logo-img">
+          </a>
+          <p style="font-size: 0.9rem; line-height: 1.6; color: #94A3B8; margin-bottom: 20px;">
+            A non-profit healthcare federation dedicated to zero preventable deaths from blood shortage through advanced transfusion medicine and humanitarian donor care.
+          </p>
+          <div style="font-size: 0.85rem; color: #CBD5E1; line-height: 1.5;">
+            <strong>Emergency Dispatch Desk:</strong><br>
+            <a href="tel:9876543210" style="color: #FF6B7F; font-size: 1.1rem; font-weight: 800; text-decoration: none;">+91 98765 43210</a> (24/7 Helpline)<br>
+            <span style="display: block; margin-top: 6px; color: #94A3B8;">Email: <a href="mailto:info@stackly.com" style="color: #CBD5E1; text-decoration: none;">info@stackly.com</a></span>
+            <span style="display: block; margin-top: 4px; color: #94A3B8;">MMR Complex, Chinna Thirupathi, Salem, Tamil Nadu 636008</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Donors &amp; Patients</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html#inventorySection">Live Blood Stock</a></li>
+            <li><a href="index.html#compatibilityMatrix">Compatibility Matrix</a></li>
+            <li><a href="index.html#eligibilityQuiz">Eligibility Quiz</a></li>
+            <li><a href="index.html#centersLocator">Find Blood Drives</a></li>
+            <li><a href="login.html">My Donor Account</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Clinical Services</h4>
+          <ul class="footer-links-list">
+            <li><a href="services.html">Whole Blood Collection</a></li>
+            <li><a href="services.html">Plateletpheresis (SDP)</a></li>
+            <li><a href="services.html">Fresh Frozen Plasma</a></li>
+            <li><a href="services.html">Cord Blood &amp; Stem Cells</a></li>
+            <li><a href="services.html">Rare Blood Group Bank</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Organization</h4>
+          <ul class="footer-links-list">
+            <li><a href="about.html">About Red Hope</a></li>
+            <li><a href="about.html#accreditations">AABB Accreditations</a></li>
+            <li><a href="blog.html">Medical Science Journal</a></li>
+            <li><a href="contact.html">Hospital Dispatch Desk</a></li>
+            <li><a href="contact.html#corporate-drive">Corporate Blood Camps</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Emergency Alert Ticker</h4>
+          <p style="font-size: 0.88rem; color: #94A3B8; line-height: 1.5;">
+            Subscribe for instant SMS/Email notifications when your specific blood type falls into critical regional shortage.
+          </p>
+          <form class="footer-newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed to Red Hope Emergency Alerts!');">
+            <input type="email" class="footer-newsletter-input" placeholder="Your Email address" required>
+            <button type="submit" class="btn btn-primary btn-sm">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>
+          &copy; 2026 Red Hope Blood Bank &amp; Transfusion Medicine Foundation. All rights reserved.
+        </div>
+        <div style="display: flex; gap: 20px;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">HIPAA Compliance</a>
+          <a href="#">Clinical Governance</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
+
