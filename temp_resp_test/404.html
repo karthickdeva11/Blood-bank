@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 â€” Lifeline Disconnected | Red Hope Blood Bank</title>
+  <meta name="description" content="Error 404. The blood unit or record you requested could not be located in the Red Hope Central Blood Bank database.">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/webp" href="logo_0104.webp">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       SECTION 1: 404 HERO ANIMATED ERROR CONTAINER (NO NAVBAR)
+       ========================================================================== -->
+  <main class="error-page-wrapper" id="errorWrapper">
+    <div class="error-bg-glow"></div>
+    <div class="error-grid-overlay"></div>
+
+    <!-- Floating Erythrocyte (RBC) decorative elements -->
+    <div class="error-floating-elements" aria-hidden="true">
+      <svg class="floating-rbc floating-rbc-1" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="42" fill="#C8102E" fill-opacity="0.3" stroke="#C8102E" stroke-width="3"/>
+        <circle cx="50" cy="50" r="22" fill="#8B0000" fill-opacity="0.4"/>
+      </svg>
+      <svg class="floating-rbc floating-rbc-2" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="40" fill="#EF233C" fill-opacity="0.25" stroke="#EF233C" stroke-width="3"/>
+        <circle cx="50" cy="50" r="20" fill="#A60F2D" fill-opacity="0.35"/>
+      </svg>
+      <svg class="floating-rbc floating-rbc-3" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="45" fill="#C8102E" fill-opacity="0.2" stroke="#C8102E" stroke-width="3"/>
+        <circle cx="50" cy="50" r="24" fill="#5A0000" fill-opacity="0.3"/>
+      </svg>
+      <svg class="floating-rbc floating-rbc-4" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="38" fill="#EF233C" fill-opacity="0.3" stroke="#EF233C" stroke-width="2.5"/>
+        <circle cx="50" cy="50" r="18" fill="#8B0000" fill-opacity="0.4"/>
+      </svg>
+      <svg class="floating-rbc floating-rbc-5" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="35" fill="#C8102E" fill-opacity="0.25" stroke="#C8102E" stroke-width="2.5"/>
+        <circle cx="50" cy="50" r="16" fill="#A60F2D" fill-opacity="0.3"/>
+      </svg>
+    </div>
+
+    <div class="container">
+      <div class="error-main-card">
+        
+        <!-- Centered Brand Identity Logo -->
+        <div class="error-brand-header" data-aos="fade-down" data-aos-duration="600">
+          <a href="index.html" class="error-brand-link" aria-label="Red Hope Blood Bank Home">
+            <img src="logo_0104.webp" alt="Red Hope Logo" class="brand-logo-img">
+          </a>
+        </div>
+
+        <!-- Animated Badge Pill -->
+        <div class="error-badge-pill" data-aos="fade-down" data-aos-duration="600" data-aos-delay="100">
+          <span class="error-badge-dot"></span>
+          Emergency Code 404 â€” Specimen Not Located
+        </div>
+
+        <!-- Giant 404 Animated Visual -->
+        <div class="error-visual-container" id="errorVisual" data-aos="zoom-in" data-aos-duration="800">
+          <div class="error-number error-digit-left">4</div>
+          
+          <!-- Central Animated Blood Droplet / Vial with Cardiac Pulse -->
+          <div class="error-center-vial" id="errorDropletVial">
+            <div class="error-radar-ring"></div>
+            
+            <!-- Fluid Blood Drop SVG -->
+            <svg class="error-droplet-svg" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="bloodGrad404" x1="60" y1="10" x2="60" y2="150" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#FF4D6D" />
+                  <stop offset="35%" stop-color="#C8102E" />
+                  <stop offset="75%" stop-color="#8B0000" />
+                  <stop offset="100%" stop-color="#4A0000" />
+                </linearGradient>
+                <filter id="bloodGlow404" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="6" result="blur" />
+                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+              </defs>
+              <!-- Outer glowing aura -->
+              <path d="M60 12 C60 12 110 76 110 108 C110 136 88 154 60 154 C32 154 10 136 10 108 C10 76 60 12 60 12 Z" 
+                    fill="url(#bloodGrad404)" filter="url(#bloodGlow404)" />
+              <!-- Highlight gloss -->
+              <ellipse cx="44" cy="92" rx="14" ry="24" transform="rotate(-20 44 92)" fill="#FFFFFF" fill-opacity="0.35" />
+              <!-- Inner pulse ring -->
+              <circle cx="60" cy="112" r="18" fill="#FFFFFF" fill-opacity="0.15" />
+            </svg>
+
+            <!-- Cardiac Rhythm ECG SVG Wave -->
+            <svg class="error-ecg-svg" viewBox="0 0 140 40" fill="none">
+              <path class="ecg-pulse-path" d="M0 20 L40 20 L50 6 L60 34 L70 12 L78 26 L86 20 L140 20" 
+                    stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div class="error-number error-digit-right">4</div>
+        </div>
+
+        <!-- Headline & Description -->
+        <h1 class="error-headline" data-aos="fade-up" data-aos-delay="150">
+          Lifeline Disconnected. <br>
+          <span>This Specimen Cannot Be Located.</span>
+        </h1>
+
+        <p class="error-subtitle" data-aos="fade-up" data-aos-delay="250">
+          The requested donor record, laboratory sample, or transfusion ward page does not exist in our regional database or may have been safely moved to another cold-chain facility.
+        </p>
+
+        <!-- Primary Action Buttons: Exactly 2 Recovery Buttons -->
+        <div class="error-actions-group" data-aos="fade-up" data-aos-delay="300">
+          <button type="button" class="btn btn-primary btn-lg error-action-btn" onclick="goBackToPreviousArea(event)" id="btnBackPrevious" aria-label="Back to Previous Page">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span>Back to Previous Page</span>
+          </button>
+          
+          <a href="index.html" class="btn btn-outline btn-lg error-action-btn" id="btnBackHome" aria-label="Back to Home">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span>Back to Home</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts: AOS, GSAP, and Main -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- 404 Specific Interactive GSAP Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof gsap !== 'undefined') {
+        // Floating physics for the central droplet
+        gsap.to('#errorDropletVial', {
+          y: -14,
+          duration: 2.4,
+          repeat: -1,
+          yoyo: true,
+          ease: 'power1.inOut'
+        });
+
+        // Subtly float the left and right "4"s with opposing phases
+        gsap.to('.error-digit-left', {
+          y: -10,
+          rotation: -2,
+          duration: 3,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut'
+        });
+
+        gsap.to('.error-digit-right', {
+          y: 10,
+          rotation: 2,
+          duration: 3.2,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+          delay: 0.5
+        });
+
+        // Floating erythrocytes in background
+        gsap.utils.toArray('.floating-rbc').forEach((rbc, i) => {
+          gsap.to(rbc, {
+            y: (i % 2 === 0 ? -25 : 25),
+            x: (i % 2 === 0 ? 15 : -15),
+            rotation: 360,
+            duration: 10 + i * 2,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut'
+          });
+        });
+
+        // Interactive mouse parallax on 404 scene
+        const errorWrapper = document.getElementById('errorWrapper');
+        const errorVisual = document.getElementById('errorVisual');
+        if (errorWrapper && errorVisual) {
+          errorWrapper.addEventListener('mousemove', (e) => {
+            const rect = errorWrapper.getBoundingClientRect();
+            const relX = (e.clientX - rect.left) / rect.width - 0.5;
+            const relY = (e.clientY - rect.top) / rect.height - 0.5;
+
+            gsap.to(errorVisual, {
+              rotationY: relX * 18,
+              rotationX: -relY * 18,
+              transformPerspective: 800,
+              ease: 'power2.out',
+              duration: 0.6
+            });
+          });
+
+          errorWrapper.addEventListener('mouseleave', () => {
+            gsap.to(errorVisual, {
+              rotationY: 0,
+              rotationX: 0,
+              ease: 'power2.out',
+              duration: 0.8
+            });
+          });
+        }
+      }
+    });
+
+    // Intelligent Back to Previous Area Navigation
+    function goBackToPreviousArea(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      const prevPage = sessionStorage.getItem('redhope_prev_page');
+      const prevScroll = sessionStorage.getItem('redhope_prev_scroll');
+
+      // Preserve scroll target coordinate
+      if (prevScroll !== null) {
+        sessionStorage.setItem('redhope_restore_scroll', prevScroll);
+      }
+
+      // Check if browser history has a valid caller entry
+      const hasHistory = window.history.length > 1;
+      const ref = document.referrer;
+      const isInternal = ref && !ref.includes('404.html');
+
+      if (hasHistory && (isInternal || prevPage)) {
+        window.history.back();
+        // Fallback watchdog: if history.back() does not unload within 250ms
+        setTimeout(() => {
+          if (prevPage && !prevPage.includes('404.html')) {
+            window.location.href = prevPage;
+          } else {
+            window.location.href = 'index.html';
+          }
+        }, 250);
+      } else if (prevPage && !prevPage.includes('404.html')) {
+        window.location.href = prevPage;
+      } else {
+        window.location.href = 'index.html';
+      }
+    }
+  </script>
+<script>
+window.addEventListener('load', () => {
+    const docW = document.documentElement.clientWidth;
+    const scrollW = document.documentElement.scrollWidth;
+    const overflowing = [];
+    document.querySelectorAll('*').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.right > docW + 1 && rect.width > 0 && !el.closest('.dash-table-wrap')) {
+            overflowing.push(el.tagName + (el.className ? '.' + el.className.split(' ').join('.') : '') + ' (r:' + Math.round(rect.right) + ' > w:' + docW + ')');
+        }
+    });
+    const resultDiv = document.createElement('div');
+    resultDiv.id = 'RESPONSIVE_TEST_RESULT';
+    resultDiv.setAttribute('data-scrollw', scrollW);
+    resultDiv.setAttribute('data-docw', docW);
+    resultDiv.setAttribute('data-overflow', overflowing.join(' | '));
+    document.body.appendChild(resultDiv);
+});
+</script></body>
+</html>
+

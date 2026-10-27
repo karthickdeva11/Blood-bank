@@ -69,6 +69,8 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -77,6 +79,8 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
+  width: 100%;
+  position: relative;
 }
 
 a {
@@ -1625,6 +1629,83 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.6;
 }
 
+/* ==========================================================================
+   Responsive Modular Component Grids & Layout Helpers
+   ========================================================================== */
+
+.split-2col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.mini-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.featured-article-card {
+  background: var(--secondary-light);
+  border: 1px solid var(--secondary-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 0;
+  box-shadow: var(--shadow-lg);
+}
+
+.featured-article-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 380px;
+  display: block;
+}
+
+.featured-article-body {
+  padding: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.booking-form-card {
+  max-width: 760px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  padding: 44px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--secondary-border);
+}
+
+.form-row-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.camps-newsletter-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.camps-newsletter-input {
+  padding: 12px 18px;
+  border-radius: var(--radius-full);
+  border: none;
+  outline: none;
+  width: 280px;
+  max-width: 100%;
+  font-size: 0.95rem;
+}
+
 /* Forms & Interactive Modals */
 .form-group {
   margin-bottom: 20px;
@@ -3057,119 +3138,761 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   Comprehensive Responsive Media Queries Across All Screens
+   Comprehensive Responsive System Strictly Optimized for:
+   375px, 390px, 414px, 768px, 1024px, 1080px, 1440px, and 1920px
    ========================================================================== */
 
-@media (max-width: 1200px) {
+/* --------------------------------------------------------------------------
+   1. Ultra-Wide & Large Desktop Displays (1920px and above)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1440px;
+  }
+  .section-padding {
+    padding: 100px 0;
+  }
+  .hero-liquid-section {
+    padding: 80px 0 120px;
+    min-height: 85vh;
+  }
+  .hero-content-wrap {
+    gap: 60px;
+    grid-template-columns: 1.3fr 0.95fr;
+  }
+  .hero-title {
+    font-size: 4.4rem;
+  }
+  .hero-desc {
+    font-size: 1.25rem;
+    max-width: 640px;
+  }
+  .dash-content {
+    padding: 36px 44px 60px;
+  }
+  .dash-kpi-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+  }
   .dash-2col-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 2fr 1fr;
+    gap: 28px;
+  }
+  .dash-inventory-grid {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 14px;
   }
 }
 
+/* --------------------------------------------------------------------------
+   2. Standard Desktop / Laptops (1440px to 1919px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1440px) and (max-width: 1919.98px) {
+  .container {
+    max-width: 1320px;
+  }
+  .section-padding {
+    padding: 90px 0;
+  }
+  .hero-content-wrap {
+    grid-template-columns: 1.25fr 0.95fr;
+    gap: 48px;
+  }
+  .dash-kpi-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+  }
+  .dash-inventory-grid {
+    grid-template-columns: repeat(8, 1fr);
+    gap: 12px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. Medium Screens & Smaller Desktops (Up to 1200px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 1140px;
+    padding: 0 20px;
+  }
+  .footer-top-grid {
+    grid-template-columns: 1.3fr repeat(2, 1fr) 1.1fr;
+    gap: 28px;
+  }
+  .dash-2col-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. Landscape Tablets & 1080px / 1024px Viewports (1080px & 1024px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1080px) {
+  .container {
+    max-width: 980px;
+    padding: 0 18px;
+  }
+  .nav-inner {
+    height: 72px;
+  }
+  .nav-links {
+    gap: 16px;
+  }
+  .nav-link {
+    font-size: 0.9rem;
+    padding: 6px 2px;
+  }
+  .nav-actions {
+    gap: 10px;
+  }
+  .nav-actions .btn {
+    padding: 9px 16px;
+    font-size: 0.88rem;
+  }
+  .brand-logo-img {
+    height: 38px;
+    max-width: 145px;
+  }
+  .hero-content-wrap {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 32px;
+  }
+  .hero-title {
+    font-size: 3rem;
+  }
+  .hero-desc {
+    font-size: 1.05rem;
+    margin-bottom: 24px;
+  }
+  .footer-top-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  .dash-kpi-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .dash-topbar {
+    padding: 0 20px;
+  }
+  .dash-content {
+    padding: 24px 20px 40px;
+  }
+  .dash-inventory-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .split-2col-grid {
+    gap: 32px;
+  }
+  .featured-article-card {
+    grid-template-columns: 1.1fr 1fr;
+  }
+  .featured-article-body {
+    padding: 32px;
+  }
+  .compat-interactive-box {
+    padding: 32px 24px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. Tablet Landscape & Mobile Drawer Switcher (Up to 992px)
+   -------------------------------------------------------------------------- */
 @media (max-width: 992px) {
+  .nav-links {
+    display: none !important;
+  }
+  .nav-actions .btn {
+    display: none !important;
+  }
+  .mobile-nav-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+  .hero-content-wrap {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .hero-card-display {
+    max-width: 580px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .split-2col-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .featured-article-card {
+    grid-template-columns: 1fr;
+  }
+  .featured-article-img {
+    min-height: 260px;
+    max-height: 320px;
+  }
+  .featured-article-body {
+    padding: 32px 24px;
+  }
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
   .dash-sidebar {
     transform: translateX(-100%);
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.25);
   }
-  
   .dash-sidebar.open {
     transform: translateX(0);
   }
-
   .dash-sidebar-close {
     display: block;
   }
-
   .dash-main {
     margin-left: 0;
   }
-
   .dash-sidebar-toggle {
     display: flex;
   }
-
-  .dash-topbar {
-    padding: 0 20px;
-  }
-
-  .dash-content {
-    padding: 20px 16px 40px;
-  }
-
   .dash-hero-banner {
     flex-direction: column;
     align-items: flex-start;
     padding: 24px;
-  }
-
-  .hero-liquid-content h1 {
-    font-size: 2.8rem;
+    gap: 16px;
   }
 }
 
+/* --------------------------------------------------------------------------
+   6. Tablet Portrait Displays (Up to 768px)
+   -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
+  .container {
+    max-width: 720px;
+    padding: 0 20px;
+  }
+  .section-padding {
+    padding: 60px 0;
+  }
+  .section-title {
+    font-size: 2.1rem;
+  }
+  .section-subtitle {
+    font-size: 1rem;
+  }
+  .top-bar-inner {
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .top-bar-links {
+    gap: 12px;
+  }
+  .top-bar-link {
+    font-size: 0.78rem;
+  }
+  .nav-inner {
+    height: 68px;
+  }
+  .brand-logo-img {
+    height: 36px;
+    max-width: 135px;
+  }
+  .hero-liquid-section {
+    padding: 50px 0 80px;
+    min-height: auto;
+  }
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero-desc {
+    font-size: 1.05rem;
+    margin-bottom: 28px;
+  }
+  .hero-stats-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding-top: 24px;
+  }
+  .stat-item h4 {
+    font-size: 1.55rem;
+  }
+  .stat-item p {
+    font-size: 0.75rem;
+  }
+  .inventory-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .compat-results-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .centers-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .form-row-2col {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .booking-form-card {
+    padding: 32px 20px;
+  }
+  .mini-stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .map-embed-container {
+    height: 320px;
+  }
   .dash-kpi-grid {
     grid-template-columns: 1fr 1fr;
     gap: 12px;
   }
-
-  .dash-topbar-left {
-    max-width: 220px;
+  .dash-topbar {
+    padding: 0 16px;
+    height: 64px;
   }
-
+  .dash-topbar-left {
+    max-width: 240px;
+  }
   .dash-status-indicator {
     display: none;
   }
-
+  .dash-content {
+    padding: 20px 14px 40px;
+  }
   .dash-hero-text h1 {
     font-size: 1.4rem;
   }
-
   .dash-card {
     padding: 18px 16px;
     border-radius: 16px;
   }
-
-  .nav-inner {
-    height: 68px;
-  }
 }
 
+/* --------------------------------------------------------------------------
+   7. Phablets & Standard Mobile Devices (414px & 390px, Up to 576px)
+   -------------------------------------------------------------------------- */
 @media (max-width: 576px) {
+  .container {
+    padding: 0 16px;
+  }
+  .section-padding {
+    padding: 48px 0;
+  }
+  .section-title {
+    font-size: 1.85rem;
+  }
+  .section-subtitle {
+    font-size: 0.92rem;
+  }
+  .top-emergency-bar {
+    padding: 8px 0;
+  }
+  .top-bar-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+  }
+  .emergency-ticker {
+    justify-content: center;
+  }
+  .ticker-text {
+    font-size: 0.78rem;
+  }
+  .top-bar-links {
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+  }
+  .top-bar-link {
+    display: none;
+  }
+  .hotline-btn {
+    font-size: 0.78rem;
+    padding: 4px 14px;
+  }
+  .nav-inner {
+    height: 62px;
+  }
+  .brand-logo-img {
+    height: 34px;
+    max-width: 130px;
+  }
+  .hero-liquid-section {
+    padding: 36px 0 54px;
+  }
+  .hero-eyebrow {
+    font-size: 0.8rem;
+    padding: 6px 14px;
+    margin-bottom: 16px;
+    gap: 6px;
+  }
+  .hero-title {
+    font-size: 2.15rem;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+  .hero-desc {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin-bottom: 22px;
+  }
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 26px;
+  }
+  .hero-cta-group .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 20px;
+    font-size: 0.98rem;
+  }
+  .hero-stats-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    padding-top: 18px;
+  }
+  .stat-item h4 {
+    font-size: 1.35rem;
+  }
+  .stat-item p {
+    font-size: 0.68rem;
+    letter-spacing: 0.02em;
+  }
+  .glass-hero-card {
+    padding: 20px 14px;
+    border-radius: 18px;
+  }
+  .hero-blood-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+  .blood-mini-pill {
+    padding: 8px 4px;
+  }
+  .blood-mini-pill strong {
+    font-size: 1.05rem;
+  }
+  .blood-mini-pill span {
+    font-size: 0.65rem;
+  }
+  .inventory-tabs {
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .inv-tab-btn {
+    padding: 8px 16px;
+    font-size: 0.82rem;
+  }
+  .inventory-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .inventory-card {
+    padding: 20px 16px;
+  }
+  .compat-interactive-box {
+    padding: 20px 14px;
+    border-radius: 18px;
+    margin-top: 24px;
+  }
+  .compat-type-selector {
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+  .type-select-btn {
+    width: 44px;
+    height: 44px;
+    font-size: 0.95rem;
+  }
+  .compat-result-card {
+    padding: 18px 14px;
+  }
+  .compat-result-card h4 {
+    font-size: 1.1rem;
+  }
+  .compat-badges-flex {
+    gap: 8px;
+  }
+  .compat-badge {
+    font-size: 0.88rem;
+    padding: 6px 12px;
+  }
+  .pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 32px;
+  }
+  .pillar-card {
+    padding: 22px 18px;
+  }
+  .journey-timeline {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .journey-step-card {
+    padding: 22px 18px;
+  }
+  .locator-search-bar {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .locator-input {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+  .locator-search-bar .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .quiz-container-box {
+    padding: 22px 14px;
+    border-radius: 18px;
+    margin-top: 24px;
+  }
+  .quiz-question-title {
+    font-size: 1.2rem;
+    margin-bottom: 18px;
+  }
+  .quiz-options-group {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .quiz-option-btn {
+    padding: 12px 16px;
+    font-size: 0.92rem;
+  }
+  .camps-banner-section {
+    padding: 44px 0;
+  }
+  .camps-inner-flex {
+    flex-direction: column;
+    text-align: center;
+    gap: 18px;
+  }
+  .camps-text h3 {
+    font-size: 1.4rem;
+  }
+  .camps-text p {
+    font-size: 0.92rem;
+  }
+  .camps-inner-flex .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .camps-newsletter-form {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .camps-newsletter-input {
+    width: 100% !important;
+    text-align: center;
+  }
+  .camps-newsletter-form .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .site-footer {
+    padding: 48px 0 24px;
+  }
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    margin-bottom: 36px;
+  }
+  .footer-newsletter-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer-newsletter-form .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .footer-bottom-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+    font-size: 0.8rem;
+  }
+  .footer-bottom-bar div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+  .booking-form-card {
+    padding: 22px 14px;
+    border-radius: 18px;
+  }
+  .mini-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .auth-page-body {
+    padding: 18px 12px;
+  }
+  .auth-card {
+    padding: 26px 18px;
+    border-radius: 18px;
+  }
+  .auth-card-title {
+    font-size: 1.35rem;
+  }
+  .auth-card-subtitle {
+    font-size: 0.84rem;
+  }
+  .role-segmented-control {
+    gap: 6px;
+  }
+  .role-option {
+    padding: 10px 8px;
+    font-size: 0.88rem;
+  }
   .dash-kpi-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
   }
-
   .dash-inventory-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
-
-  .donor-card-blood-type {
-    font-size: 2rem;
+  .dash-hero-banner {
+    padding: 18px 14px;
+    border-radius: 16px;
   }
-
-  .vital-grid {
-    grid-template-columns: 1fr 1fr;
+  .dash-hero-text h1 {
+    font-size: 1.3rem;
   }
-
+  .dash-hero-text p {
+    font-size: 0.85rem;
+  }
   .dash-hero-actions {
     width: 100%;
+    flex-direction: column;
+    gap: 8px;
   }
-
   .dash-hero-actions .btn {
     width: 100%;
     justify-content: center;
   }
-
-  .mobile-menu-drawer {
-    top: 68px;
-    padding: 18px 16px;
+  .dash-card {
+    padding: 16px 12px;
+    border-radius: 14px;
+  }
+  .dash-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .dash-card-title {
+    font-size: 1.05rem;
+  }
+  .dash-topbar-left {
+    max-width: 160px;
+  }
+  .dash-search-input {
+    height: 36px;
+    font-size: 0.82rem;
+  }
+  .error-number {
+    font-size: clamp(4.2rem, 18vw, 6rem);
+  }
+  .error-center-vial {
+    width: 70px;
+    height: 95px;
+  }
+  .error-headline {
+    font-size: 1.5rem;
+  }
+  .error-subtitle {
+    font-size: 0.9rem;
+  }
+  .error-actions-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+  .error-actions-group .btn {
+    width: 100%;
+    justify-content: center;
+    min-width: unset;
   }
 }
 
-@media (max-width: 400px) {
-  .dash-inventory-grid {
-    grid-template-columns: repeat(2, 1fr);
+/* --------------------------------------------------------------------------
+   8. Small Mobile Displays (Strict 375px & Small Handsets)
+   -------------------------------------------------------------------------- */
+@media (max-width: 380px) {
+  .container {
+    padding: 0 12px;
+  }
+  .brand-logo-img {
+    height: 30px;
+    max-width: 115px;
+  }
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    padding: 4px 10px;
+  }
+  .hero-title {
+    font-size: 1.85rem;
+  }
+  .stat-item h4 {
+    font-size: 1.25rem;
+  }
+  .stat-item p {
+    font-size: 0.62rem;
+  }
+  .type-select-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 0.88rem;
+  }
+  .compat-interactive-box {
+    padding: 16px 10px;
+  }
+  .compat-badge {
+    font-size: 0.82rem;
+    padding: 5px 10px;
+  }
+  .auth-card {
+    padding: 22px 14px;
+  }
+  .dash-card {
+    padding: 14px 10px;
+  }
+  .dash-kpi-value {
+    font-size: 1.55rem;
+  }
+  .dash-topbar-left {
+    max-width: 130px;
+  }
+  .error-number {
+    font-size: 4rem;
+  }
+  .error-center-vial {
+    width: 58px;
+    height: 80px;
+  }
+  .error-headline {
+    font-size: 1.35rem;
   }
 }
 

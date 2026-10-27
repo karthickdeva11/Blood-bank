@@ -1,0 +1,436 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login &amp; Sign Up â€” Stackly</title>
+  <meta name="description" content="Sign in or create your account to access the Donor and Administrative management portal.">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/webp" href="logo_0104.webp">
+</head>
+<body class="auth-page-body">
+
+  <main class="auth-container">
+    <div class="auth-card" data-aos="zoom-in" data-aos-duration="700">
+      
+      <!-- Card Brand Header -->
+      <header class="auth-card-header">
+        <a href="index.html" class="auth-logo-link" aria-label="Stackly Home">
+          <img src="logo_0104.webp" alt="Stackly Logo" class="auth-logo-img">
+        </a>
+        <h1 class="auth-card-title" id="authTitle">Welcome Back</h1>
+        <p class="auth-card-subtitle" id="authSubtitle">Select your role and sign in to continue</p>
+      </header>
+
+      <!-- View Switcher Tabs -->
+      <div class="auth-mode-tabs" role="tablist" aria-label="Authentication Mode">
+        <button type="button" class="auth-mode-tab active" id="tabLogin" role="tab" aria-selected="true" aria-controls="loginPanel">Login</button>
+        <button type="button" class="auth-mode-tab" id="tabSignup" role="tab" aria-selected="false" aria-controls="signupPanel">Sign Up</button>
+      </div>
+
+      <!-- Inline Feedback Notice (No Popups) -->
+      <div id="authNotice" style="display:none; margin: 0 0 16px; padding: 12px 14px; border-radius: 8px; font-size: 0.88rem; line-height: 1.4;"></div>
+
+      <!-- ======================================================================
+           1. LOGIN FORM PANEL
+           ====================================================================== -->
+      <section class="auth-view-panel active" id="loginPanel" role="tabpanel" aria-labelledby="tabLogin">
+        <form id="loginForm" onsubmit="handleLoginSubmit(event)">
+          
+          <!-- Role Selection Slot -->
+          <div class="role-selector-wrap">
+            <label class="form-label">Role Selection</label>
+            <div class="role-segmented-control" role="radiogroup" aria-label="Login Role Selection">
+              <button type="button" class="role-option active" data-form="login" data-role="donor" role="radio" aria-checked="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                <span>Donor</span>
+              </button>
+              <button type="button" class="role-option" data-form="login" data-role="admin" role="radio" aria-checked="false">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Admin</span>
+              </button>
+            </div>
+            <input type="hidden" name="role" id="loginRole" value="donor">
+          </div>
+
+          <!-- Mail ID Slot -->
+          <div class="form-group">
+            <label class="form-label" for="loginEmail">Mail ID</label>
+            <div class="input-with-icon">
+              <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <input type="email" id="loginEmail" name="email" class="form-control" placeholder="name@example.com" required autocomplete="email">
+            </div>
+          </div>
+
+          <!-- Password Slot -->
+          <div class="form-group">
+            <div class="form-label-row">
+              <label class="form-label" for="loginPassword">Password</label>
+              <a href="#" class="forgot-link" id="forgotPasswordLink">Forgot Password?</a>
+            </div>
+            <div class="input-with-icon">
+              <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              <input type="password" id="loginPassword" name="password" class="form-control" placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢" required autocomplete="current-password">
+              <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('loginPassword', this)" aria-label="Toggle password visibility">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Login Button -->
+          <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 10px;">
+            Login
+          </button>
+
+          <!-- Divider -->
+          <div class="auth-divider">
+            <span>or</span>
+          </div>
+
+          <!-- Create Account Button -->
+          <button type="button" class="btn btn-outline btn-block" id="btnGoToSignup" onclick="switchToMode('signup')">
+            Create an Account
+          </button>
+        </form>
+      </section>
+
+      <!-- ======================================================================
+           2. SIGN UP FORM PANEL
+           ====================================================================== -->
+      <section class="auth-view-panel" id="signupPanel" role="tabpanel" aria-labelledby="tabSignup">
+        <form id="signupForm" onsubmit="handleSignupSubmit(event)">
+          
+          <!-- Role Selection Slot -->
+          <div class="role-selector-wrap">
+            <label class="form-label">Role Selection</label>
+            <div class="role-segmented-control" role="radiogroup" aria-label="Sign Up Role Selection">
+              <button type="button" class="role-option active" data-form="signup" data-role="donor" role="radio" aria-checked="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                <span>Donor</span>
+              </button>
+              <button type="button" class="role-option" data-form="signup" data-role="admin" role="radio" aria-checked="false">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Admin</span>
+              </button>
+            </div>
+            <input type="hidden" name="role" id="signupRole" value="donor">
+          </div>
+
+          <!-- Mail ID Slot -->
+          <div class="form-group">
+            <label class="form-label" for="signupEmail">Mail ID</label>
+            <div class="input-with-icon">
+              <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <input type="email" id="signupEmail" name="email" class="form-control" placeholder="name@example.com" required autocomplete="email">
+            </div>
+          </div>
+
+          <!-- Password Slot -->
+          <div class="form-group">
+            <label class="form-label" for="signupPassword">Password</label>
+            <div class="input-with-icon">
+              <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              <input type="password" id="signupPassword" name="password" class="form-control" placeholder="Create password" required autocomplete="new-password">
+              <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('signupPassword', this)" aria-label="Toggle password visibility">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Confirm Password Slot -->
+          <div class="form-group">
+            <label class="form-label" for="signupConfirmPassword">Confirm Password</label>
+            <div class="input-with-icon">
+              <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              <input type="password" id="signupConfirmPassword" name="confirm_password" class="form-control" placeholder="Re-enter password" required autocomplete="new-password">
+              <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('signupConfirmPassword', this)" aria-label="Toggle password visibility">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              </button>
+            </div>
+            <div id="passwordMismatchMsg" style="display: none; color: #DC2626; font-size: 0.8rem; margin-top: 6px; font-weight: 600;">
+              Passwords do not match.
+            </div>
+          </div>
+
+          <!-- Sign Up Button -->
+          <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 10px;">
+            Sign Up
+          </button>
+
+          <!-- Divider -->
+          <div class="auth-divider">
+            <span>or</span>
+          </div>
+
+          <!-- Back to Login Button -->
+          <button type="button" class="btn btn-outline btn-block" id="btnGoToLogin" onclick="switchToMode('login')">
+            Already have an account? Login
+          </button>
+        </form>
+      </section>
+
+      <!-- Back to Home Button -->
+      <footer class="auth-card-footer">
+        <a href="index.html" class="back-home-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+          Back to Home
+        </a>
+      </footer>
+
+    </div>
+  </main>
+
+  <script>
+    // Toggle between Login and Sign Up modes
+    function switchToMode(mode) {
+      const isLogin = mode === 'login';
+      document.getElementById('loginPanel').classList.toggle('active', isLogin);
+      document.getElementById('signupPanel').classList.toggle('active', !isLogin);
+      document.getElementById('tabLogin').classList.toggle('active', isLogin);
+      document.getElementById('tabSignup').classList.toggle('active', !isLogin);
+      document.getElementById('tabLogin').setAttribute('aria-selected', isLogin);
+      document.getElementById('tabSignup').setAttribute('aria-selected', !isLogin);
+
+      const title = document.getElementById('authTitle');
+      const subtitle = document.getElementById('authSubtitle');
+      if (isLogin) {
+        title.textContent = 'Welcome Back';
+        subtitle.textContent = 'Select your role and sign in to continue';
+      } else {
+        title.textContent = 'Create an Account';
+        subtitle.textContent = 'Select your role and register to get started';
+      }
+    }
+
+    document.getElementById('tabLogin').addEventListener('click', () => switchToMode('login'));
+    document.getElementById('tabSignup').addEventListener('click', () => switchToMode('signup'));
+
+    // Role Selection handler
+    document.querySelectorAll('.role-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const formType = btn.getAttribute('data-form');
+        const role = btn.getAttribute('data-role');
+        const container = btn.closest('.role-segmented-control');
+        container.querySelectorAll('.role-option').forEach(opt => {
+          opt.classList.remove('active');
+          opt.setAttribute('aria-checked', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-checked', 'true');
+        
+        if (formType === 'login') {
+          document.getElementById('loginRole').value = role;
+          const emailInput = document.getElementById('loginEmail');
+          if (role === 'admin') {
+            emailInput.placeholder = 'admin@stackly.org';
+          } else {
+            emailInput.placeholder = 'name@example.com';
+          }
+        } else {
+          document.getElementById('signupRole').value = role;
+          const emailInput = document.getElementById('signupEmail');
+          if (role === 'admin') {
+            emailInput.placeholder = 'admin@stackly.org';
+          } else {
+            emailInput.placeholder = 'name@example.com';
+          }
+        }
+      });
+    });
+
+    // Password visibility toggle
+    function togglePasswordVisibility(inputId, toggleBtn) {
+      const input = document.getElementById(inputId);
+      const isPassword = input.type === 'password';
+      input.type = isPassword ? 'text' : 'password';
+      toggleBtn.innerHTML = isPassword 
+        ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>'
+        : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>';
+    }
+
+    // Inline Feedback Notice (No Popups)
+    function showInlineNotice(msg, isSuccess = true) {
+      const notice = document.getElementById('authNotice');
+      if (!notice) return;
+      notice.style.display = 'block';
+      notice.style.background = isSuccess ? 'rgba(16, 185, 129, 0.12)' : 'rgba(239, 68, 68, 0.12)';
+      notice.style.color = isSuccess ? '#065F46' : '#991B1B';
+      notice.style.border = isSuccess ? '1px solid rgba(16, 185, 129, 0.3)' : '1px solid rgba(239, 68, 68, 0.3)';
+      notice.innerHTML = (isSuccess ? 'âœ“ ' : 'âš  ') + msg;
+    }
+
+    // Forgot Password Handler (Inline feedback, zero popups)
+    document.getElementById('forgotPasswordLink').addEventListener('click', (e) => {
+      e.preventDefault();
+      const emailInput = document.getElementById('loginEmail');
+      const email = emailInput.value.trim();
+      const role = document.getElementById('loginRole').value;
+      const roleName = role === 'admin' ? 'Admin' : 'Donor';
+      if (email) {
+        showInlineNotice(`Password reset instructions have been dispatched to ${email} for your ${roleName} account.`, true);
+      } else {
+        emailInput.focus();
+        emailInput.classList.add('is-invalid');
+        showInlineNotice(`Please enter your registered ${roleName} Mail ID above to receive password reset instructions.`, false);
+      }
+    });
+
+    // Helper to format user display name from email
+    function formatDisplayNameFromEmail(email, role) {
+      if (!email || !email.includes('@')) {
+        return role === 'admin' ? 'Dr. Sarah Chen' : 'David Sterling';
+      }
+      const raw = email.split('@')[0].replace(/[._-]/g, ' ').trim();
+      if (!raw) return role === 'admin' ? 'Dr. Sarah Chen' : 'David Sterling';
+      return raw.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ');
+    }
+
+    // Login Form Submit â€” Redirects to Respective Dashboard (No Popups)
+    function handleLoginSubmit(e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const form = document.getElementById('loginForm');
+      const emailInput = document.getElementById('loginEmail');
+      const passwordInput = document.getElementById('loginPassword');
+
+      // Clear previous error states
+      form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+
+      let isValid = true;
+      if (!emailInput.value.trim() || !emailInput.checkValidity()) {
+        emailInput.classList.add('is-invalid');
+        isValid = false;
+      }
+      if (!passwordInput.value) {
+        passwordInput.classList.add('is-invalid');
+        isValid = false;
+      }
+
+      if (!isValid) {
+        showInlineNotice('Please enter your valid Mail ID and password.', false);
+        return;
+      }
+
+      const role = document.getElementById('loginRole').value || 'donor';
+      const email = emailInput.value.trim();
+      const displayName = formatDisplayNameFromEmail(email, role);
+
+      // Persist active session for dashboard personalization
+      localStorage.setItem('bloodBankUser', JSON.stringify({
+        name: displayName,
+        email: email,
+        role: role,
+        authenticated: true,
+        loginTime: new Date().toISOString()
+      }));
+
+      // Button loading indicator
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 0.8s linear infinite; display: inline-block; vertical-align: middle; margin-right: 6px;"><circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle><path d="M12 2a10 10 0 0 1 10 10" stroke-opacity="1"></path></svg>
+        Signing in...
+      `;
+
+      const targetDashboard = (role === 'admin') ? 'admin-dashboard.html' : 'donor-dashboard.html';
+
+      setTimeout(() => {
+        window.location.href = targetDashboard;
+      }, 350);
+    }
+
+    // Sign Up Form Submit â€” Redirects to Respective Dashboard (No Popups)
+    function handleSignupSubmit(e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const form = document.getElementById('signupForm');
+      const emailInput = document.getElementById('signupEmail');
+      const passwordInput = document.getElementById('signupPassword');
+      const confirmPasswordInput = document.getElementById('signupConfirmPassword');
+      const mismatchMsg = document.getElementById('passwordMismatchMsg');
+
+      // Clear previous error states
+      form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
+      if (mismatchMsg) mismatchMsg.style.display = 'none';
+
+      let isValid = true;
+      if (!emailInput.value.trim() || !emailInput.checkValidity()) {
+        emailInput.classList.add('is-invalid');
+        isValid = false;
+      }
+      if (!passwordInput.value || passwordInput.value.length < 4) {
+        passwordInput.classList.add('is-invalid');
+        isValid = false;
+      }
+      if (passwordInput.value !== confirmPasswordInput.value) {
+        confirmPasswordInput.classList.add('is-invalid');
+        if (mismatchMsg) mismatchMsg.style.display = 'block';
+        isValid = false;
+      }
+
+      if (!isValid) {
+        showInlineNotice('Please fill out all required fields properly.', false);
+        return;
+      }
+
+      const role = document.getElementById('signupRole').value || 'donor';
+      const email = emailInput.value.trim();
+      const displayName = formatDisplayNameFromEmail(email, role);
+
+      // Persist active session for dashboard personalization
+      localStorage.setItem('bloodBankUser', JSON.stringify({
+        name: displayName,
+        email: email,
+        role: role,
+        authenticated: true,
+        signupTime: new Date().toISOString()
+      }));
+
+      // Button loading indicator
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="animation: spin 0.8s linear infinite; display: inline-block; vertical-align: middle; margin-right: 6px;"><circle cx="12" cy="12" r="10" stroke-opacity="0.25"></circle><path d="M12 2a10 10 0 0 1 10 10" stroke-opacity="1"></path></svg>
+        Registering account...
+      `;
+
+      const targetDashboard = (role === 'admin') ? 'admin-dashboard.html' : 'donor-dashboard.html';
+
+      setTimeout(() => {
+        window.location.href = targetDashboard;
+      }, 350);
+    }
+
+    // Check hash on load (#signup)
+    if (window.location.hash === '#signup') {
+      switchToMode('signup');
+    }
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+<script>
+window.addEventListener('load', () => {
+    const docW = document.documentElement.clientWidth;
+    const scrollW = document.documentElement.scrollWidth;
+    const overflowing = [];
+    document.querySelectorAll('*').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.right > docW + 1 && rect.width > 0 && !el.closest('.dash-table-wrap')) {
+            overflowing.push(el.tagName + (el.className ? '.' + el.className.split(' ').join('.') : '') + ' (r:' + Math.round(rect.right) + ' > w:' + docW + ')');
+        }
+    });
+    const resultDiv = document.createElement('div');
+    resultDiv.id = 'RESPONSIVE_TEST_RESULT';
+    resultDiv.setAttribute('data-scrollw', scrollW);
+    resultDiv.setAttribute('data-docw', docW);
+    resultDiv.setAttribute('data-overflow', overflowing.join(' | '));
+    document.body.appendChild(resultDiv);
+});
+</script></body>
+</html>
+

@@ -1,0 +1,703 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Operations Console â€” Red Hope &amp; Stackly</title>
+  <meta name="description" content="Central administrative dashboard for blood inventory tracking, emergency hospital dispatch requisitions, and donor database management.">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/webp" href="logo_0104.webp">
+</head>
+<body>
+
+  <div class="dash-layout">
+    
+    <!-- Mobile Sidebar Backdrop -->
+    <div class="dash-sidebar-backdrop"></div>
+
+    <!-- ======================================================================
+         SIDEBAR NAVIGATION
+         ====================================================================== -->
+    <aside class="dash-sidebar">
+      <div class="dash-sidebar-header">
+        <a href="index.html" class="brand-logo" aria-label="Return to Homepage">
+          <img src="logo_0104.webp" alt="Stackly Logo" class="brand-logo-img" style="height: 38px;">
+        </a>
+        <button class="dash-sidebar-close" aria-label="Close sidebar">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div style="padding: 0 20px 8px;">
+        <span class="dash-portal-tag tag-admin">Central Admin Console</span>
+      </div>
+
+      <nav class="dash-sidebar-nav">
+        <div class="dash-nav-category">Main Operations</div>
+        <a href="#operationsSection" class="dash-nav-item active" data-tab="operationsSection">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <span>Live Operations</span>
+        </a>
+        <a href="#inventorySection" class="dash-nav-item" data-tab="inventorySection">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          <span>Blood Inventory</span>
+          <span class="dash-nav-badge">1,428 Pints</span>
+        </a>
+        <a href="#dispatchesSection" class="dash-nav-item" data-tab="dispatchesSection">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+          <span>Hospital Requests</span>
+          <span class="dash-nav-badge" style="background: rgba(220, 38, 38, 0.2); color: #DC2626;">4 Urgent</span>
+        </a>
+        <a href="#mediaSection" class="dash-nav-item" data-tab="mediaSection">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <span>Laboratory &amp; Camps</span>
+        </a>
+
+        <div class="dash-nav-category">System &amp; Tools</div>
+        <a href="#addBatchSection" class="dash-nav-item" data-tab="addBatchSection">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          <span>+ Add Stock Batch</span>
+        </a>
+        <a href="404.html" onclick="redirectTo404(event)" class="dash-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          <span>Emergency Broadcast</span>
+        </a>
+        <a href="index.html" class="dash-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          <span>Public Website</span>
+        </a>
+        <a href="donor-dashboard.html" class="dash-nav-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <span>Switch to Donor View</span>
+        </a>
+      </nav>
+
+      <div class="dash-sidebar-footer">
+        <div class="dash-user-snippet">
+          <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=120&h=120&q=70" alt="Admin Profile" class="dash-user-avatar">
+          <div class="dash-user-info">
+            <div class="dash-user-name" id="adminUserDisplayName">Dr. Sarah Chen</div>
+            <div class="dash-user-role">System Administrator</div>
+          </div>
+        </div>
+        <button class="dash-logout-btn" onclick="logoutUser()" title="Logout">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+        </button>
+      </div>
+    </aside>
+
+    <!-- ======================================================================
+         MAIN CONTENT AREA
+         ====================================================================== -->
+    <main class="dash-main">
+      
+      <!-- Topbar -->
+      <header class="dash-topbar">
+        <div class="dash-topbar-left">
+          <button class="dash-sidebar-toggle" aria-label="Open sidebar menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div class="dash-search-box">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" class="dash-search-input" placeholder="Search donors, inventory batches, hospitals...">
+          </div>
+        </div>
+
+        <div class="dash-topbar-right">
+          <div class="dash-status-indicator">
+            <span class="status-dot-green"></span>
+            <span>Central Lab Online</span>
+          </div>
+
+          <button class="dash-icon-btn" onclick="redirectTo404(event)" aria-label="Notifications" title="Notifications">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <span class="dash-icon-dot"></span>
+          </button>
+
+          <a href="login.html" class="btn btn-outline btn-sm" onclick="logoutUser()">Logout</a>
+        </div>
+      </header>
+
+      <!-- Dashboard Content -->
+      <div class="dash-content">
+        
+        <!-- ================================================================
+             TAB PANE 1: LIVE OPERATIONS (DEFAULT ACTIVE)
+             ================================================================ -->
+        <div class="dash-tab-pane active" id="operationsSection">
+          <!-- Welcome Hero Banner -->
+          <section class="dash-hero-banner">
+            <div class="dash-hero-text">
+              <h1 id="adminWelcomeTitle">Blood Bank Operations &amp; Dispatch Console</h1>
+              <p>Live inventory monitoring across all 8 blood groups, automated cold-chain telemetry, and level-1 hospital emergency delivery tracking.</p>
+            </div>
+            <div class="dash-hero-actions">
+              <button class="btn btn-primary" onclick="switchDashboardTab('addBatchSection')" style="background: #FFFFFF; color: var(--blood-base); border: none;">
+                + Add Stock Batch
+              </button>
+              <button class="btn btn-outline" onclick="redirectTo404(event)" style="color: #FFFFFF; border-color: rgba(255,255,255,0.4);">
+                Send Shortage Alert
+              </button>
+            </div>
+          </section>
+
+          <!-- KPI Metrics Grid -->
+          <section class="dash-kpi-grid">
+            <div class="dash-kpi-card" style="cursor: pointer;" onclick="switchDashboardTab('inventorySection')">
+              <div class="dash-kpi-top">
+                <span class="dash-kpi-label">Total Blood Units</span>
+                <div class="dash-kpi-icon kpi-icon-red">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                </div>
+              </div>
+              <div class="dash-kpi-value">1,428 Pints</div>
+              <div class="dash-kpi-footer">
+                <span class="trend-up"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg> +8.4%</span>
+                <span>Click to view stock meters &rarr;</span>
+              </div>
+            </div>
+
+            <div class="dash-kpi-card" style="cursor: pointer;" onclick="switchDashboardTab('inventorySection')">
+              <div class="dash-kpi-top">
+                <span class="dash-kpi-label">Critical Shortages</span>
+                <div class="dash-kpi-icon kpi-icon-amber">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                </div>
+              </div>
+              <div class="dash-kpi-value" style="color: #DC2626;">O- &amp; B-</div>
+              <div class="dash-kpi-footer">
+                <span class="trend-down"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg> &lt;1.8 Days</span>
+                <span>Regional emergency call issued</span>
+              </div>
+            </div>
+
+            <div class="dash-kpi-card" style="cursor: pointer;" onclick="switchDashboardTab('dispatchesSection')">
+              <div class="dash-kpi-top">
+                <span class="dash-kpi-label">Hospital Orders</span>
+                <div class="dash-kpi-icon kpi-icon-blue">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                </div>
+              </div>
+              <div class="dash-kpi-value">14 Active</div>
+              <div class="dash-kpi-footer">
+                <span class="trend-up"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg> 4 In Transit</span>
+                <span>Click to manage requisitions &rarr;</span>
+              </div>
+            </div>
+
+            <div class="dash-kpi-card">
+              <div class="dash-kpi-top">
+                <span class="dash-kpi-label">Registered Donors</span>
+                <div class="dash-kpi-icon kpi-icon-green">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+              </div>
+              <div class="dash-kpi-value">9,842</div>
+              <div class="dash-kpi-footer">
+                <span class="trend-up"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"></polyline></svg> +126</span>
+                <span>New voluntary sign-ups this month</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Operations Quick Navigation Hub -->
+          <div class="dash-2col-grid" style="margin-top: 24px;">
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <div>
+                  <h3 class="dash-card-title">Live Vault Status</h3>
+                  <p class="dash-card-desc">Current cold storage reserve summary across 8 ABO blood types.</p>
+                </div>
+                <button class="btn btn-primary btn-sm" onclick="switchDashboardTab('inventorySection')">View Full Inventory &rarr;</button>
+              </div>
+              <div style="background: var(--secondary-light); border-radius: 12px; padding: 18px; border: 1px solid var(--secondary-border);">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                  <span style="font-weight: 700; font-size: 0.9rem;">Overall Reserve Capacity</span>
+                  <span style="font-weight: 800; color: var(--blood-primary);">84% (1,428 / 1,700 Pints)</span>
+                </div>
+                <div style="height: 8px; background: #E2E8F0; border-radius: 99px; overflow: hidden; margin-bottom: 12px;">
+                  <div style="width: 84%; height: 100%; background: linear-gradient(90deg, var(--blood-primary), #10B981);"></div>
+                </div>
+                <p style="font-size: 0.82rem; color: var(--secondary-muted); margin: 0;">
+                  âš ï¸ O- and B- reserves require immediate replenishment. Click above to view individual component meters.
+                </p>
+              </div>
+            </div>
+
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <div>
+                  <h3 class="dash-card-title">Hospital Requisitions</h3>
+                  <p class="dash-card-desc">Active trauma center dispatch pipeline and couriers en route.</p>
+                </div>
+                <button class="btn btn-outline btn-sm" onclick="switchDashboardTab('dispatchesSection')">View All Requisitions &rarr;</button>
+              </div>
+              <div style="background: var(--secondary-light); border-radius: 12px; padding: 18px; border: 1px solid var(--secondary-border);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                  <strong style="color: var(--secondary-dark); font-size: 0.9rem;">4 Urgent STAT Dispatches</strong>
+                  <span class="inv-pill-status status-critical">STAT Emergency</span>
+                </div>
+                <p style="font-size: 0.82rem; color: var(--secondary-muted); margin-bottom: 12px;">
+                  St. Jude Trauma Center requisition #STJ-9041 courier is en route with 6 O- units (ETA 7 mins).
+                </p>
+                <div style="display: flex; gap: 8px;">
+                  <button class="btn btn-primary btn-sm" onclick="switchDashboardTab('dispatchesSection')">Open Dispatch Queue</button>
+                  <button class="btn btn-outline btn-sm" onclick="redirectTo404(event)">Emergency Broadcast</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================================================================
+             TAB PANE 2: BLOOD INVENTORY
+             ================================================================ -->
+        <div class="dash-tab-pane" id="inventorySection">
+          <!-- Live Blood Stock Inventory Meters -->
+          <section class="dash-card">
+            <div class="dash-card-header">
+              <div>
+                <h2 class="dash-card-title">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="color: var(--blood-primary);"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                  Live Blood Stock Inventory by Type
+                </h2>
+                <p class="dash-card-desc">Real-time inventory levels stored in temperature-monitored cryogenic vaults (-25Â°C to 4Â°C).</p>
+              </div>
+              <button class="btn btn-outline btn-sm" onclick="switchDashboardTab('addBatchSection')">+ Add New Units</button>
+            </div>
+
+            <div class="dash-inventory-grid">
+              <!-- O- -->
+              <div class="inv-pill-card critical">
+                <div class="inv-pill-badge">O-</div>
+                <div class="inv-pill-count">18 Units</div>
+                <span class="inv-pill-status status-critical">Critical</span>
+              </div>
+
+              <!-- O+ -->
+              <div class="inv-pill-card">
+                <div class="inv-pill-badge">O+</div>
+                <div class="inv-pill-count">428 Units</div>
+                <span class="inv-pill-status status-stable">Optimal</span>
+              </div>
+
+              <!-- A- -->
+              <div class="inv-pill-card">
+                <div class="inv-pill-badge">A-</div>
+                <div class="inv-pill-count">42 Units</div>
+                <span class="inv-pill-status status-low">Low</span>
+              </div>
+
+              <!-- A+ -->
+              <div class="inv-pill-card">
+                <div class="inv-pill-badge">A+</div>
+                <div class="inv-pill-count">360 Units</div>
+                <span class="inv-pill-status status-stable">Optimal</span>
+              </div>
+
+              <!-- B- -->
+              <div class="inv-pill-card critical">
+                <div class="inv-pill-badge">B-</div>
+                <div class="inv-pill-count">24 Units</div>
+                <span class="inv-pill-status status-critical">Critical</span>
+              </div>
+
+              <!-- B+ -->
+              <div class="inv-pill-card">
+                <div class="inv-pill-badge">B+</div>
+                <div class="inv-pill-count">284 Units</div>
+                <span class="inv-pill-status status-stable">Optimal</span>
+              </div>
+
+              <!-- AB- -->
+              <div class="inv-pill-card">
+                <div class="inv-pill-badge">AB-</div>
+                <div class="inv-pill-count">38 Units</div>
+                <span class="inv-pill-status status-low">Low</span>
+              </div>
+
+              <!-- AB+ -->
+              <div class="inv-pill-card">
+                <div class="inv-pill-badge">AB+</div>
+                <div class="inv-pill-count">234 Units</div>
+                <span class="inv-pill-status status-stable">Optimal</span>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ================================================================
+             TAB PANE 3: HOSPITAL REQUESTS & TELEMETRY
+             ================================================================ -->
+        <div class="dash-tab-pane" id="dispatchesSection">
+          <!-- Two Column Section: Live Dispatches & System Telemetry -->
+          <div class="dash-2col-grid">
+            
+            <!-- Hospital Emergency Requests Table -->
+            <div class="dash-card">
+              <div class="dash-card-header">
+                <div>
+                  <h2 class="dash-card-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--blood-primary);"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                    Active Hospital Requisitions Queue
+                  </h2>
+                  <p class="dash-card-desc">Level-1 Trauma Centers and ICU emergency blood courier dispatch status.</p>
+                </div>
+                <span class="badge" style="background: var(--blood-soft); color: var(--blood-primary); font-weight: 700; padding: 4px 10px; border-radius: 99px;">Live Dispatch</span>
+              </div>
+
+              <div class="dash-table-wrap">
+                <table class="dash-table">
+                  <thead>
+                    <tr>
+                      <th>Hospital Center</th>
+                      <th>Required Units</th>
+                      <th>Clinical Priority</th>
+                      <th>Delivery Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <strong>St. Jude Trauma Center</strong><br>
+                        <span style="font-size: 0.75rem; color: var(--secondary-muted);">Req #STJ-9041 â€¢ Dr. Moreau</span>
+                      </td>
+                      <td><strong style="color: var(--blood-primary);">O- Negative (6 Units)</strong></td>
+                      <td><span class="inv-pill-status status-critical">STAT Emergency</span></td>
+                      <td><span class="inv-pill-status status-dispatched">Courier En Route (7m)</span></td>
+                      <td><button class="btn btn-outline btn-sm" onclick="redirectTo404(event)">Track</button></td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <strong>Metro General ICU</strong><br>
+                        <span style="font-size: 0.75rem; color: var(--secondary-muted);">Req #MG-8832 â€¢ Cardiac Surgery</span>
+                      </td>
+                      <td><strong style="color: var(--secondary-slate);">AB+ Platelets (4 Units)</strong></td>
+                      <td><span class="inv-pill-status status-low">Urgent Surgical</span></td>
+                      <td><span class="inv-pill-status status-stable">Packaging Ready</span></td>
+                      <td><button class="btn btn-outline btn-sm" onclick="redirectTo404(event)">Dispatch</button></td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <strong>City Children's Hospital</strong><br>
+                        <span style="font-size: 0.75rem; color: var(--secondary-muted);">Req #CCH-1204 â€¢ Pediatric Ward</span>
+                      </td>
+                      <td><strong style="color: var(--secondary-slate);">A- Whole Blood (2 Units)</strong></td>
+                      <td><span class="inv-pill-status status-stable">Scheduled Buffer</span></td>
+                      <td><span class="inv-pill-status status-stable">Delivered 11:20 AM</span></td>
+                      <td><button class="btn btn-outline btn-sm" onclick="redirectTo404(event)">Manifest</button></td>
+                    </tr>
+
+                    <tr>
+                      <td>
+                        <strong>Regional Veteran's Clinic</strong><br>
+                        <span style="font-size: 0.75rem; color: var(--secondary-muted);">Req #VA-4491 â€¢ Oncology Infusion</span>
+                      </td>
+                      <td><strong style="color: var(--secondary-slate);">O+ Packed Cells (8 Units)</strong></td>
+                      <td><span class="inv-pill-status status-stable">Scheduled Buffer</span></td>
+                      <td><span class="inv-pill-status status-dispatched">Scheduled 2:00 PM</span></td>
+                      <td><button class="btn btn-outline btn-sm" onclick="redirectTo404(event)">Details</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Quick Actions & Storage Telemetry -->
+            <div class="dash-card">
+              <h3 class="dash-card-title" style="margin-bottom: 14px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--blood-primary);"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                Cold Vault Telemetry
+              </h3>
+              
+              <div style="background: var(--secondary-light); border-radius: 14px; padding: 18px; margin-bottom: 16px; border: 1px solid var(--secondary-border);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="font-size: 0.82rem; font-weight: 700; color: var(--secondary-slate);">Cryogenic Vault A (RBCs)</span>
+                  <span class="status-pill status-stable">3.8Â°C (Optimal)</span>
+                </div>
+                <div style="height: 6px; background: #E2E8F0; border-radius: 99px; overflow: hidden;">
+                  <div style="width: 78%; height: 100%; background: var(--blood-primary);"></div>
+                </div>
+                <div style="font-size: 0.74rem; color: var(--secondary-muted); margin-top: 6px;">Target: 2.0Â°C to 6.0Â°C â€¢ Auto-defrost inactive</div>
+              </div>
+
+              <div style="background: var(--secondary-light); border-radius: 14px; padding: 18px; margin-bottom: 18px; border: 1px solid var(--secondary-border);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <span style="font-size: 0.82rem; font-weight: 700; color: var(--secondary-slate);">Plasma Deep Freeze 02</span>
+                  <span class="status-pill status-stable">-24.2Â°C (Optimal)</span>
+                </div>
+                <div style="height: 6px; background: #E2E8F0; border-radius: 99px; overflow: hidden;">
+                  <div style="width: 92%; height: 100%; background: var(--info-cyan);"></div>
+                </div>
+                <div style="font-size: 0.74rem; color: var(--secondary-muted); margin-top: 6px;">Target: â‰¤ -18.0Â°C â€¢ Backup generator armed</div>
+              </div>
+
+              <div style="border-top: 1px solid var(--secondary-border); padding-top: 16px;">
+                <h4 style="font-size: 0.95rem; margin-bottom: 10px;">Immediate Shortage Outreach</h4>
+                <p style="font-size: 0.82rem; color: var(--secondary-muted); margin-bottom: 14px;">Trigger automated SMS and push alerts to voluntary donors within a 15-mile radius.</p>
+                <button class="btn btn-primary btn-block" onclick="redirectTo404(event)">
+                  ðŸ“¢ Broadcast O- &amp; B- Urgent Call
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================================================================
+             TAB PANE 4: LABORATORY & CAMPS
+             ================================================================ -->
+        <div class="dash-tab-pane" id="mediaSection">
+          <!-- Clinical Facilities & Mobile Camp Photo Gallery -->
+          <section class="dash-card">
+            <div class="dash-card-header">
+              <div>
+                <h2 class="dash-card-title">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--blood-primary);"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                  Clinical Facilities &amp; Active Mobile Camps
+                </h2>
+                <p class="dash-card-desc">High-security bio-fractionation laboratories, apheresis suites, and mobile community donation vehicles.</p>
+              </div>
+            </div>
+
+            <div class="dash-media-grid">
+              <div class="dash-media-card">
+                <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=500&q=70" alt="Blood testing laboratory technician inspecting sterile plasma samples">
+                <div class="dash-media-card-body">
+                  <div class="dash-media-card-title">Cold Chain Storage Vault</div>
+                  <p class="dash-media-card-desc">Maintains 2,500 units in continuous temperature-logged refrigeration.</p>
+                </div>
+              </div>
+
+              <div class="dash-media-card">
+                <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=500&q=70" alt="Apheresis blood separator machine">
+                <div class="dash-media-card-body">
+                  <div class="dash-media-card-title">Apheresis Platelet Suite</div>
+                  <p class="dash-media-card-desc">Dedicated single-donor plateletpheresis machines collecting high-yield units.</p>
+                </div>
+              </div>
+
+              <div class="dash-media-card">
+                <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=500&q=70" alt="NAT screening under microscope">
+                <div class="dash-media-card-body">
+                  <div class="dash-media-card-title">NAT Screening Laboratory</div>
+                  <p class="dash-media-card-desc">Individual nucleic acid testing (NAT) verifying safety against infectious agents.</p>
+                </div>
+              </div>
+
+              <div class="dash-media-card">
+                <img src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?auto=format&fit=crop&w=500&q=70" alt="Mobile blood camp coach">
+                <div class="dash-media-card-body">
+                  <div class="dash-media-card-title">Metro Mobile Drive Coach</div>
+                  <p class="dash-media-card-desc">Air-conditioned 4-bed mobile clinic deployed across tech parks and universities.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- ================================================================
+             TAB PANE 5: REGISTER NEW BLOOD BATCH (NO POPUPS)
+             ================================================================ -->
+        <div class="dash-tab-pane" id="addBatchSection">
+          <div class="dash-card">
+            <div class="dash-card-header">
+              <div>
+                <h2 class="dash-card-title">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--blood-primary);"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  Register New Blood Stock Batch
+                </h2>
+                <p class="dash-card-desc">Log incoming whole blood or component donations verified by laboratory screening directly into the cold chain vault.</p>
+              </div>
+            </div>
+
+            <form onsubmit="handleBatchSubmit(event)">
+              <div class="form-row-2col">
+                <div class="form-group">
+                  <label class="form-label">Blood Group</label>
+                  <select class="form-control" id="batchBloodType" required>
+                    <option value="O-">O Negative (Universal)</option>
+                    <option value="O+">O Positive</option>
+                    <option value="A-">A Negative</option>
+                    <option value="A+">A Positive</option>
+                    <option value="B-">B Negative</option>
+                    <option value="B+">B Positive</option>
+                    <option value="AB-">AB Negative</option>
+                    <option value="AB+">AB Positive</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Component Type</label>
+                  <select class="form-control" id="batchComponentType" required>
+                    <option value="Whole Blood">Whole Blood (450ml)</option>
+                    <option value="Packed Red Cells">Packed Red Cells (PRBC)</option>
+                    <option value="Platelets">Apheresis Platelets (SDP)</option>
+                    <option value="Plasma">Fresh Frozen Plasma (FFP)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row-2col">
+                <div class="form-group">
+                  <label class="form-label">Number of Pints / Units</label>
+                  <input type="number" min="1" max="100" class="form-control" value="5" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Collection Location</label>
+                  <input type="text" class="form-control" placeholder="e.g. Central Suite / Camp 4" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Laboratory NAT Test Status</label>
+                <select class="form-control" required>
+                  <option value="passed">NAT Negative / Cleared for Clinical Use</option>
+                  <option value="quarantine">In Quarantine (Results Pending)</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 10px;">
+                Confirm &amp; Update Inventory
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Load session user details
+    try {
+      const session = JSON.parse(localStorage.getItem('bloodBankUser'));
+      if (session && session.name) {
+        document.getElementById('adminUserDisplayName').textContent = session.name;
+        document.getElementById('adminWelcomeTitle').textContent = `Welcome, ${session.name} â€” Operations Console`;
+      }
+    } catch(e) {}
+
+    function redirectTo404(e) {
+      if (e && e.preventDefault) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      sessionStorage.setItem('redhope_prev_page', window.location.href);
+      sessionStorage.setItem('redhope_prev_scroll', window.scrollY.toString());
+      window.location.href = '404.html';
+    }
+
+    function handleBatchSubmit(e) {
+      e.preventDefault();
+      redirectTo404(e);
+    }
+
+    function logoutUser() {
+      localStorage.removeItem('bloodBankUser');
+      window.location.href = 'login.html';
+    }
+
+    // Sidebar Tabbed Navigation Handler
+    function switchDashboardTab(targetId) {
+      if (!targetId) return;
+
+      const panes = document.querySelectorAll('.dash-tab-pane');
+      let foundPane = false;
+      panes.forEach(pane => {
+        if (pane.id === targetId) {
+          pane.classList.add('active');
+          foundPane = true;
+        } else {
+          pane.classList.remove('active');
+        }
+      });
+
+      if (!foundPane) return;
+
+      // Update sidebar active state
+      document.querySelectorAll('.dash-sidebar-nav .dash-nav-item[data-tab]').forEach(item => {
+        if (item.getAttribute('data-tab') === targetId) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+
+      // Update browser URL hash cleanly without jumping
+      if (history.pushState) {
+        history.pushState(null, null, '#' + targetId);
+      } else {
+        window.location.hash = targetId;
+      }
+
+      // Smooth scroll back to top of dashboard content
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Close mobile sidebar if open
+      const dashSidebar = document.querySelector('.dash-sidebar');
+      const dashBackdrop = document.querySelector('.dash-sidebar-backdrop');
+      if (dashSidebar) dashSidebar.classList.remove('open');
+      if (dashBackdrop) dashBackdrop.classList.remove('active');
+
+      // Refresh AOS animations
+      if (typeof AOS !== 'undefined') {
+        AOS.refresh();
+      }
+    }
+
+    // Attach click listener to sidebar navigation items
+    document.querySelectorAll('.dash-sidebar-nav .dash-nav-item[data-tab]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('data-tab');
+        switchDashboardTab(targetId);
+      });
+    });
+
+    // Check URL hash on page load (e.g. #inventorySection, #dispatchesSection)
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && document.getElementById(hash) && document.getElementById(hash).classList.contains('dash-tab-pane')) {
+        switchDashboardTab(hash);
+      }
+    });
+
+    // Handle browser back and forward buttons
+    window.addEventListener('popstate', () => {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && document.getElementById(hash) && document.getElementById(hash).classList.contains('dash-tab-pane')) {
+        switchDashboardTab(hash);
+      } else if (!hash) {
+        switchDashboardTab('operationsSection');
+      }
+    });
+  </script>
+<script>
+window.addEventListener('load', () => {
+    const docW = document.documentElement.clientWidth;
+    const scrollW = document.documentElement.scrollWidth;
+    const overflowing = [];
+    document.querySelectorAll('*').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.right > docW + 1 && rect.width > 0 && !el.closest('.dash-table-wrap')) {
+            overflowing.push(el.tagName + (el.className ? '.' + el.className.split(' ').join('.') : '') + ' (r:' + Math.round(rect.right) + ' > w:' + docW + ')');
+        }
+    });
+    const resultDiv = document.createElement('div');
+    resultDiv.id = 'RESPONSIVE_TEST_RESULT';
+    resultDiv.setAttribute('data-scrollw', scrollW);
+    resultDiv.setAttribute('data-docw', docW);
+    resultDiv.setAttribute('data-overflow', overflowing.join(' | '));
+    document.body.appendChild(resultDiv);
+});
+</script></body>
+</html>
+

@@ -1,0 +1,945 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RED HOPE â€” Central Blood Bank & Transfusion Medicine Network</title>
+  <meta name="description" content="Red Hope Central Blood Bank provides 24/7 emergency blood supply, apheresis platelets, rare blood matching, and state-of-the-art donor facilities. Every drop counts.">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/webp" href="logo_0104.webp">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       SECTION 1: MAIN NAVIGATION HEADER
+       ========================================================================== -->
+
+  <header class="header-main">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+        <img src="logo_0104.webp" alt="Stackly Logo" class="brand-logo-img">
+      </a>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+        <button class="mobile-nav-toggle" aria-label="Open Navigation Menu">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Full-Screen Mobile Drawer -->
+    <div class="mobile-menu-drawer">
+      <div class="mobile-drawer-header">
+        <a href="index.html" class="brand-logo" aria-label="Stackly Home">
+          <img src="logo_0104.webp" alt="Stackly Logo" class="brand-logo-img">
+        </a>
+        <button class="mobile-drawer-close" aria-label="Close Navigation Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <ul class="mobile-menu-list">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html" class="mobile-login-link">Login</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       SECTION 2: LIQUID SCULPTURE HERO SECTION (Interactive Fluid Particle Canvas)
+       ========================================================================== -->
+  <section class="hero-liquid-section" id="heroLiquid">
+    <!-- Interactive WebGL / Canvas particle simulation container -->
+    <div class="hero-canvas-container">
+      <canvas id="heroLiquidCanvas"></canvas>
+    </div>
+
+    <!-- Giant faint backdrop word -->
+    <div class="hero-backdrop-word" aria-hidden="true">HAEMA</div>
+
+    <div class="container hero-content-wrap">
+      <div class="hero-text-block">
+        <div class="hero-eyebrow">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          Certified AABB &amp; WHO Standards Blood Repository
+        </div>
+        <h1 class="hero-title">
+          Every Drop Counts. <br>
+          <span class="crimson">Every Second Matters.</span>
+        </h1>
+        <p class="hero-desc">
+          Red Hope operates the region's most technologically advanced cold-chain blood repository. With just 450ml of your gift, we safeguard mothers in labor, trauma victims, and cancer warriors fighting for tomorrow.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="404.html" class="btn btn-primary btn-lg">
+            Schedule a Donation
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="404.html" class="btn btn-outline btn-lg">
+            Check Live Blood Stock
+          </a>
+        </div>
+
+        <div class="hero-hint-pill">
+          Move your cursor or touch to stir the liquid blood cells
+        </div>
+
+        <div class="hero-stats-row">
+          <div class="stat-item">
+            <h4>1.8M+</h4>
+            <p>Pints Collected</p>
+          </div>
+          <div class="stat-item">
+            <h4>18 Min</h4>
+            <p>Avg Dispatch Time</p>
+          </div>
+          <div class="stat-item">
+            <h4>100%</h4>
+            <p>Nucleic Acid Tested</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Real-time Emergency Card -->
+      <div class="hero-card-display">
+        <div class="glass-hero-card">
+          <div class="card-header-flex">
+            <div>
+              <h3 style="font-size: 1.2rem; margin-bottom: 2px;">Central Blood Vault</h3>
+              <p style="font-size: 0.8rem; color: var(--secondary-muted);">Live Cold-Chain Inventory Status</p>
+            </div>
+            <span class="hero-live-badge"><span class="pulse-dot"></span> LIVE REPOSITORY</span>
+          </div>
+
+          <div class="hero-blood-grid">
+            <div class="blood-mini-pill" onclick="document.getElementById('inventorySection').scrollIntoView({behavior:'smooth'})">
+              <span class="type">O-</span>
+              <span class="level critical">CRITICAL</span>
+            </div>
+            <div class="blood-mini-pill" onclick="document.getElementById('inventorySection').scrollIntoView({behavior:'smooth'})">
+              <span class="type">O+</span>
+              <span class="level low">LOW</span>
+            </div>
+            <div class="blood-mini-pill" onclick="document.getElementById('inventorySection').scrollIntoView({behavior:'smooth'})">
+              <span class="type">A-</span>
+              <span class="level critical">CRITICAL</span>
+            </div>
+            <div class="blood-mini-pill" onclick="document.getElementById('inventorySection').scrollIntoView({behavior:'smooth'})">
+              <span class="type">A+</span>
+              <span class="level optimal">OPTIMAL</span>
+            </div>
+            <div class="blood-mini-pill" onclick="document.getElementById('inventorySection').scrollIntoView({behavior:'smooth'})">
+              <span class="type">B-</span>
+              <span class="level critical">CRITICAL</span>
+            </div>
+            <div class="blood-mini-pill" onclick="document.getElementById('inventorySection').scrollIntoView({behavior:'smooth'})">
+              <span class="type">B+</span>
+              <span class="level optimal">OPTIMAL</span>
+            </div>
+            <div class="blood-mini-pill" onclick="document.getElementById('inventorySection').scrollIntoView({behavior:'smooth'})">
+              <span class="type">AB-</span>
+              <span class="level critical">CRITICAL</span>
+            </div>
+            <div class="blood-mini-pill" onclick="document.getElementById('inventorySection').scrollIntoView({behavior:'smooth'})">
+              <span class="type">AB+</span>
+              <span class="level optimal">OPTIMAL</span>
+            </div>
+          </div>
+
+          <div class="hero-quick-request-box">
+            <h5>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+              Immediate Hospital Requisition
+            </h5>
+            <p>Hospitals and accredited medical units can request emergency courier units within 60 seconds.</p>
+            <a href="404.html" class="btn btn-primary btn-sm" style="width: 100%;">
+              Hospital Requisition Portal
+            </a>
+          </div>
+        </div>
+
+        <div class="floating-status-tag">
+          <div class="floating-icon-dot">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+          </div>
+          <div>
+            <div style="font-size: 0.76rem; color: #FFA4AD; text-transform: uppercase; font-weight: 700;">Zero Contamination Guarantee</div>
+            <div style="font-weight: 800; font-size: 0.95rem;">NAT + Serology Screened</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 3: LIVE BLOOD INVENTORY STOCK STATUS METER
+       ========================================================================== -->
+  <section class="section-padding inventory-section" id="inventorySection" data-aos="fade-up">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 30px;">
+        <span class="section-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          Transparent Real-Time Telemetry
+        </span>
+        <h2 class="section-title">Live Blood Reserve Inventory</h2>
+        <p class="section-subtitle">
+          Our centralized database syncs with 48 regional trauma centers every 5 minutes. Below are live reserve levels indicating current hospital urgency.
+        </p>
+      </div>
+
+      <div class="inventory-tabs">
+        <button class="inv-tab-btn active" data-cat="all">All Blood Components</button>
+        <button class="inv-tab-btn" data-cat="whole">Whole Blood Units</button>
+        <button class="inv-tab-btn" data-cat="platelets">Single Donor Platelets (SDP)</button>
+        <button class="inv-tab-btn" data-cat="plasma">Fresh Frozen Plasma (FFP)</button>
+      </div>
+
+      <div class="inventory-grid">
+        <!-- O- -->
+        <div class="inventory-card critical">
+          <div class="inv-card-top">
+            <span class="blood-type-symbol">O-</span>
+            <span class="status-badge-pill critical">CRITICAL</span>
+          </div>
+          <div class="inv-level-bar-wrap">
+            <div class="inv-labels">
+              <span class="inv-units-count">14 Units Available</span>
+              <span>Need: 65 Units</span>
+            </div>
+            <div class="meter-track">
+              <div class="meter-fill" style="width: 22%;"></div>
+            </div>
+          </div>
+          <div class="inv-footer-details">
+            <span>Buffer Time: <strong class="inv-days-count">1.2 Days</strong></span>
+            <a href="404.html" class="btn btn-outline btn-sm" style="padding: 4px 10px; font-size: 0.78rem;">Donate O-</a>
+          </div>
+        </div>
+
+        <!-- O+ -->
+        <div class="inventory-card low">
+          <div class="inv-card-top">
+            <span class="blood-type-symbol">O+</span>
+            <span class="status-badge-pill low">LOW</span>
+          </div>
+          <div class="inv-level-bar-wrap">
+            <div class="inv-labels">
+              <span class="inv-units-count">48 Units Available</span>
+              <span>Need: 110 Units</span>
+            </div>
+            <div class="meter-track">
+              <div class="meter-fill" style="width: 45%;"></div>
+            </div>
+          </div>
+          <div class="inv-footer-details">
+            <span>Buffer Time: <strong class="inv-days-count">2.5 Days</strong></span>
+            <a href="404.html" class="btn btn-outline btn-sm" style="padding: 4px 10px; font-size: 0.78rem;">Donate O+</a>
+          </div>
+        </div>
+
+        <!-- A- -->
+        <div class="inventory-card critical">
+          <div class="inv-card-top">
+            <span class="blood-type-symbol">A-</span>
+            <span class="status-badge-pill critical">CRITICAL</span>
+          </div>
+          <div class="inv-level-bar-wrap">
+            <div class="inv-labels">
+              <span class="inv-units-count">19 Units Available</span>
+              <span>Need: 70 Units</span>
+            </div>
+            <div class="meter-track">
+              <div class="meter-fill" style="width: 28%;"></div>
+            </div>
+          </div>
+          <div class="inv-footer-details">
+            <span>Buffer Time: <strong class="inv-days-count">1.4 Days</strong></span>
+            <a href="404.html" class="btn btn-outline btn-sm" style="padding: 4px 10px; font-size: 0.78rem;">Donate A-</a>
+          </div>
+        </div>
+
+        <!-- A+ -->
+        <div class="inventory-card optimal">
+          <div class="inv-card-top">
+            <span class="blood-type-symbol">A+</span>
+            <span class="status-badge-pill optimal">OPTIMAL</span>
+          </div>
+          <div class="inv-level-bar-wrap">
+            <div class="inv-labels">
+              <span class="inv-units-count">82 Units Available</span>
+              <span>Need: 95 Units</span>
+            </div>
+            <div class="meter-track">
+              <div class="meter-fill" style="width: 86%;"></div>
+            </div>
+          </div>
+          <div class="inv-footer-details">
+            <span>Buffer Time: <strong class="inv-days-count">5.8 Days</strong></span>
+            <a href="404.html" class="btn btn-outline btn-sm" style="padding: 4px 10px; font-size: 0.78rem;">Donate A+</a>
+          </div>
+        </div>
+
+        <!-- B- -->
+        <div class="inventory-card critical">
+          <div class="inv-card-top">
+            <span class="blood-type-symbol">B-</span>
+            <span class="status-badge-pill critical">CRITICAL</span>
+          </div>
+          <div class="inv-level-bar-wrap">
+            <div class="inv-labels">
+              <span class="inv-units-count">11 Units Available</span>
+              <span>Need: 60 Units</span>
+            </div>
+            <div class="meter-track">
+              <div class="meter-fill" style="width: 18%;"></div>
+            </div>
+          </div>
+          <div class="inv-footer-details">
+            <span>Buffer Time: <strong class="inv-days-count">0.9 Days</strong></span>
+            <a href="404.html" class="btn btn-outline btn-sm" style="padding: 4px 10px; font-size: 0.78rem;">Donate B-</a>
+          </div>
+        </div>
+
+        <!-- B+ -->
+        <div class="inventory-card optimal">
+          <div class="inv-card-top">
+            <span class="blood-type-symbol">B+</span>
+            <span class="status-badge-pill optimal">OPTIMAL</span>
+          </div>
+          <div class="inv-level-bar-wrap">
+            <div class="inv-labels">
+              <span class="inv-units-count">64 Units Available</span>
+              <span>Need: 80 Units</span>
+            </div>
+            <div class="meter-track">
+              <div class="meter-fill" style="width: 78%;"></div>
+            </div>
+          </div>
+          <div class="inv-footer-details">
+            <span>Buffer Time: <strong class="inv-days-count">4.6 Days</strong></span>
+            <a href="404.html" class="btn btn-outline btn-sm" style="padding: 4px 10px; font-size: 0.78rem;">Donate B+</a>
+          </div>
+        </div>
+
+        <!-- AB- -->
+        <div class="inventory-card critical">
+          <div class="inv-card-top">
+            <span class="blood-type-symbol">AB-</span>
+            <span class="status-badge-pill critical">CRITICAL</span>
+          </div>
+          <div class="inv-level-bar-wrap">
+            <div class="inv-labels">
+              <span class="inv-units-count">8 Units Available</span>
+              <span>Need: 50 Units</span>
+            </div>
+            <div class="meter-track">
+              <div class="meter-fill" style="width: 14%;"></div>
+            </div>
+          </div>
+          <div class="inv-footer-details">
+            <span>Buffer Time: <strong class="inv-days-count">0.7 Days</strong></span>
+            <a href="404.html" class="btn btn-outline btn-sm" style="padding: 4px 10px; font-size: 0.78rem;">Donate AB-</a>
+          </div>
+        </div>
+
+        <!-- AB+ -->
+        <div class="inventory-card optimal">
+          <div class="inv-card-top">
+            <span class="blood-type-symbol">AB+</span>
+            <span class="status-badge-pill optimal">OPTIMAL</span>
+          </div>
+          <div class="inv-level-bar-wrap">
+            <div class="inv-labels">
+              <span class="inv-units-count">52 Units Available</span>
+              <span>Need: 70 Units</span>
+            </div>
+            <div class="meter-track">
+              <div class="meter-fill" style="width: 72%;"></div>
+            </div>
+          </div>
+          <div class="inv-footer-details">
+            <span>Buffer Time: <strong class="inv-days-count">4.2 Days</strong></span>
+            <a href="404.html" class="btn btn-outline btn-sm" style="padding: 4px 10px; font-size: 0.78rem;">Donate AB+</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 4: INTERACTIVE BLOOD COMPATIBILITY MATRIX & RECIPIENT CALCULATOR
+       ========================================================================== -->
+  <section class="section-padding compatibility-section" id="compatibilityMatrix" data-aos="fade-up">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          Transfusion Genetics
+        </span>
+        <h2 class="section-title">Who Can You Save Today?</h2>
+        <p class="section-subtitle">
+          Select your blood type below to calculate your exact biological compatibility matrix for Red Blood Cells (RBCs) and Blood Plasma.
+        </p>
+      </div>
+
+      <div class="compat-interactive-box">
+        <div class="compat-type-selector">
+          <button class="type-select-btn active" data-type="O-">O-</button>
+          <button class="type-select-btn" data-type="O+">O+</button>
+          <button class="type-select-btn" data-type="A-">A-</button>
+          <button class="type-select-btn" data-type="A+">A+</button>
+          <button class="type-select-btn" data-type="B-">B-</button>
+          <button class="type-select-btn" data-type="B+">B+</button>
+          <button class="type-select-btn" data-type="AB-">AB-</button>
+          <button class="type-select-btn" data-type="AB+">AB+</button>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 24px;">
+          <h3 id="compatHeadline" style="font-size: 1.5rem; color: var(--blood-base);">O- â€” Universal Red Cell Donor</h3>
+        </div>
+
+        <div class="compat-results-grid">
+          <div class="compat-result-card">
+            <h4>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+              You Can Donate Red Cells (RBC) To:
+            </h4>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">Patients with these recipient blood groups can safely accept your red blood cells:</p>
+            <div class="compat-badges-flex" id="compatCanGive">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <div class="compat-result-card">
+            <h4>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              You Can Safely Receive Red Cells From:
+            </h4>
+            <p style="font-size: 0.88rem; color: var(--text-secondary);">If you ever need an emergency transfusion, you can receive units from:</p>
+            <div class="compat-badges-flex" id="compatCanReceive">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+
+        <div class="compat-note-box" id="compatNote">
+          O- Negative red blood cells can be given to patients of ANY blood type. In emergency trauma, this is the first unit reached for.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 5: WHY DONATE BLOOD / KEY IMPACT PILLARS
+       ========================================================================== -->
+  <section class="section-padding impact-pillars-section" data-aos="fade-up">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          Clinical Significance
+        </span>
+        <h2 class="section-title">One Donation. Three Lives Renewed.</h2>
+        <p class="section-subtitle">
+          Human blood cannot be synthesized in a factory. Every single bag comes from the selfless benevolence of an everyday hero like you.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          </div>
+          <h3>Trauma &amp; Emergency Surgery</h3>
+          <p>A single car crash victim can require up to 100 units of blood in the first 2 hours of emergency resuscitation. Immediate availability makes survival possible.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path></svg>
+          </div>
+          <h3>Cancer &amp; Leukemia Care</h3>
+          <p>Chemotherapy drugs temporarily shut down bone marrow platelet production. Apheresis platelets prevent fatal internal bleeding during oncology recovery.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3>Thalassemia &amp; Sickle Cell</h3>
+          <p>Patients with chronic hemoglobinopathies require monthly lifetime transfusions to oxygenate vital organs and prevent early pediatric strokes.</p>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <h3>Maternal &amp; Neonatal Health</h3>
+          <p>Postpartum hemorrhage remains a leading cause of maternal mortality. Screened blood units protect new mothers and premature infants in the NICU.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 6: STEP-BY-STEP DONATION JOURNEY (Interactive Timeline)
+       ========================================================================== -->
+  <section class="section-padding journey-section" data-aos="fade-up">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          Donor Experience
+        </span>
+        <h2 class="section-title">Your 45-Minute Journey to Saving Lives</h2>
+        <p class="section-subtitle">
+          Donating blood is safe, gentle, and rigorously monitored by board-certified hematologists and nurses. Here is what to expect from arrival to refreshments.
+        </p>
+      </div>
+
+      <div class="journey-timeline">
+        <div class="journey-step-card">
+          <div class="step-num-bubble">1</div>
+          <span class="step-time-tag">Approx 10 Mins</span>
+          <h4>Check-In &amp; Registration</h4>
+          <p>Present a photo ID, review donor education materials, and complete a private health questionnaire on our sterilized digital tablets.</p>
+        </div>
+
+        <div class="journey-step-card">
+          <div class="step-num-bubble">2</div>
+          <span class="step-time-tag">Approx 8 Mins</span>
+          <h4>Mini Health Check</h4>
+          <p>A licensed nurse measures your blood pressure, pulse, temperature, and a tiny painless finger prick checks your hemoglobin levels.</p>
+        </div>
+
+        <div class="journey-step-card">
+          <div class="step-num-bubble">3</div>
+          <span class="step-time-tag">Approx 10-12 Mins</span>
+          <h4>The Gentle Donation</h4>
+          <p>Relax in an ergonomic climate-controlled lounge chair. The actual collection takes only 8 to 10 minutes using single-use sterile medical kits.</p>
+        </div>
+
+        <div class="journey-step-card">
+          <div class="step-num-bubble">4</div>
+          <span class="step-time-tag">Approx 15 Mins</span>
+          <h4>Refreshments &amp; Glow</h4>
+          <p>Enjoy premium juices, artisanal snacks, and fresh fruit in our observation lounge while your fluid volume begins regenerating immediately.</p>
+        </div>
+
+        <div class="journey-step-card">
+          <div class="step-num-bubble">5</div>
+          <span class="step-time-tag">Next 24 Hours</span>
+          <h4>Lab Testing &amp; Impact</h4>
+          <p>Your blood is separated into 3 components, tested against 14 infectious markers via NAT, and dispatched directly to regional ICUs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 7: FIND NEAREST BLOOD DRIVE / DONATION CENTER LOCATOR
+       ========================================================================== -->
+  <section class="section-padding locator-section" id="centersLocator" data-aos="fade-up">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          Regional Footprint
+        </span>
+        <h2 class="section-title">Find a Blood Bank or Mobile Camp</h2>
+        <p class="section-subtitle">
+          With 12 fixed state-of-the-art transfusion centers and 6 high-tech mobile collection coaches, saving lives is always close to you.
+        </p>
+      </div>
+
+      <div class="locator-search-bar">
+        <input type="text" id="centerSearchInput" class="locator-input" placeholder="Search by city, center name, or zip code (e.g., Downtown, North Clinic)...">
+        <button class="btn btn-primary" id="locatorSearchBtn" type="button" onclick="const input = document.getElementById('centerSearchInput'); if (input) { input.dispatchEvent(new Event('input')); input.scrollIntoView({ behavior: 'smooth', block: 'center' }); }">Search</button>
+      </div>
+
+      <div class="centers-grid">
+        <div class="center-card" style="border: 2px solid var(--blood-crimson); background: #FFFBFB;">
+          <span class="center-type-badge">CENTRAL HEADQUARTERS</span>
+          <h3>Stackly Central Blood Bank</h3>
+          <div class="center-info-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>MMR Complex, Chinna Thirupathi, near Chinna Muniyappan Kovil, Salem, Tamil Nadu 636008</span>
+          </div>
+          <div class="center-info-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>Open 24/7 for Emergency Collections &amp; Dispatch</span>
+          </div>
+          <div class="center-info-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Direct Line: <a href="tel:9876543210" style="color: var(--blood-primary); font-weight: 700; text-decoration: none;">+91 98765 43210</a></span>
+          </div>
+          <div class="center-info-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>Email: <a href="mailto:info@stackly.com" style="color: var(--blood-primary); font-weight: 600; text-decoration: none;">info@stackly.com</a></span>
+          </div>
+          <div class="center-actions" style="flex-wrap: wrap; gap: 8px;">
+            <a href="404.html" class="btn btn-outline btn-sm" style="font-size: 0.78rem;">View on Map &nearr;</a>
+            <a href="404.html" class="btn btn-primary btn-sm">Book at HQ</a>
+          </div>
+        </div>
+
+        <div class="center-card">
+          <span class="center-type-badge">APHERESIS SPECIALTY CLINIC</span>
+          <h3>North Valley Platelet &amp; Plasma Center</h3>
+          <div class="center-info-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>1204 Highland Avenue, North Valley Health Pavilion</span>
+          </div>
+          <div class="center-info-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>Mon - Sat: 7:00 AM â€“ 8:30 PM | Sun: 8:00 AM â€“ 4:00 PM</span>
+          </div>
+          <div class="center-info-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Direct Line: +91 98765 43210</span>
+          </div>
+          <div class="center-actions">
+            <span style="font-weight: 700; color: var(--success-emerald); font-size: 0.85rem;">â— 12 Trima Accel Beds</span>
+            <a href="404.html" class="btn btn-primary btn-sm">Book at North</a>
+          </div>
+        </div>
+
+        <div class="center-card">
+          <span class="center-type-badge">MOBILE EXPEDITION COACH</span>
+          <h3>Mobile Van Alpha â€” Tech District</h3>
+          <div class="center-info-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <span>Stationed at Innovation Plaza, West Gate Entrance</span>
+          </div>
+          <div class="center-info-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>Today's Camp: 9:00 AM â€“ 5:30 PM (Walk-ins Welcome)</span>
+          </div>
+          <div class="center-info-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>Coordinator: +91 98765 43210</span>
+          </div>
+          <div class="center-actions">
+            <span style="font-weight: 700; color: var(--urgent-amber); font-size: 0.85rem;">â— Free Coffee &amp; Donuts</span>
+            <a href="404.html" class="btn btn-primary btn-sm">Join Mobile Queue</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 8: INTERACTIVE DONOR ELIGIBILITY QUICK-CHECKER QUIZ
+       ========================================================================== -->
+  <section class="section-padding quiz-section" id="eligibilityQuiz" data-aos="zoom-in">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge" style="background: rgba(255,255,255,0.1); color: #FFD4D8; border-color: rgba(255,255,255,0.2);">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          Instant Pre-Screening
+        </span>
+        <h2 class="section-title" style="color: #FFFFFF;">Are You Eligible to Give? (60-Second Quiz)</h2>
+        <p class="section-subtitle" style="color: #FFA4AD;">
+          Take our interactive 4-question check to verify whether you meet general clinical donor requirements before visiting a center.
+        </p>
+      </div>
+
+      <div class="quiz-container-box">
+        <div class="quiz-step-indicator" id="quizStepNum">Question 1 of 4</div>
+        <div class="quiz-progress-bar">
+          <div class="quiz-progress-fill" id="quizProgressBarFill" style="width: 25%;"></div>
+        </div>
+
+        <!-- Question 1 -->
+        <div class="quiz-question-card active" data-step="1">
+          <h3 class="quiz-question-title">Are you between 17 and 65 years old, and weigh at least 50 kg (110 lbs)?</h3>
+          <div class="quiz-options-group">
+            <button class="quiz-option-btn" data-step="1" data-answer="yes">
+              <strong>Yes</strong> â€” I meet both age and weight criteria
+            </button>
+            <button class="quiz-option-btn" data-step="1" data-answer="no">
+              <strong>No</strong> â€” I am under 17 / under 50 kg
+            </button>
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-question-card" data-step="2">
+          <h3 class="quiz-question-title">Are you feeling healthy, well, and free of active cold, flu, or fever symptoms today?</h3>
+          <div class="quiz-options-group">
+            <button class="quiz-option-btn" data-step="2" data-answer="yes">
+              <strong>Yes</strong> â€” I am feeling healthy and energetic
+            </button>
+            <button class="quiz-option-btn" data-step="2" data-answer="no">
+              <strong>No</strong> â€” I have a mild fever or active infection
+            </button>
+          </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="quiz-question-card" data-step="3">
+          <h3 class="quiz-question-title">Has it been at least 56 days (8 weeks) since your last whole blood donation?</h3>
+          <div class="quiz-options-group">
+            <button class="quiz-option-btn" data-step="3" data-answer="yes">
+              <strong>Yes</strong> â€” More than 56 days (or first-time donor)
+            </button>
+            <button class="quiz-option-btn" data-step="3" data-answer="no">
+              <strong>No</strong> â€” I donated within the last 8 weeks
+            </button>
+          </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="quiz-question-card" data-step="4">
+          <h3 class="quiz-question-title">Have you received a new tattoo or body piercing in the past 3 months?</h3>
+          <div class="quiz-options-group">
+            <button class="quiz-option-btn" data-step="4" data-answer="no">
+              <strong>No</strong> â€” No new tattoos/piercings within 3 months
+            </button>
+            <button class="quiz-option-btn" data-step="4" data-answer="yes">
+              <strong>Yes</strong> â€” Got one in the last 3 months
+            </button>
+          </div>
+        </div>
+
+        <!-- Result Box -->
+        <div class="quiz-result-box" id="quizResultBox">
+          <div class="result-icon-large" id="quizResultBadge"></div>
+          <h3 id="quizResultTitle" style="font-size: 1.6rem; color: #FFFFFF; margin-bottom: 12px;"></h3>
+          <p id="quizResultDesc" style="color: #FFE4E6; font-size: 1.05rem; margin-bottom: 24px; max-width: 600px; margin-left: auto; margin-right: auto;"></p>
+          <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+            <a href="404.html" class="btn btn-primary btn-lg">Schedule Your Donation Bed</a>
+            <button class="btn btn-outline-white" id="quizResetBtn">Retake Quiz</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 9: REAL SURVIVOR STORIES & DONOR TESTIMONIALS
+       ========================================================================== -->
+  <section class="section-padding testimonials-section" data-aos="fade-up">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          Voices of Hope
+        </span>
+        <h2 class="section-title">The Real Faces Saved By Your Gift</h2>
+        <p class="section-subtitle">
+          Behind every sterile blood bag is a beating human heart, a relieved mother, or a child who gets to celebrate another birthday.
+        </p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-quote">
+            "When our four-year-old daughter Maya was diagnosed with Acute Lymphoblastic Leukemia, she required 26 platelet transfusions over six months. Because Red Hope donors showed up, Maya just rang the remission bell."
+          </div>
+          <div class="testimonial-author-flex">
+            <!-- Optimized Unsplash medical image < 60kb -->
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&h=120&q=70" alt="Elena Rodriguez" class="author-avatar" width="52" height="52" loading="lazy">
+            <div class="author-details">
+              <h4>Elena Rodriguez</h4>
+              <p>Mother of Leukemia Survivor Maya</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-quote">
+            "I have been a Gallon Club donor since 2008. Giving blood takes me less than an hour on a Saturday morning, yet knowing someone walked out of intensive care because I spared 450ml is the purest feeling on Earth."
+          </div>
+          <div class="testimonial-author-flex">
+            <!-- Optimized Unsplash portrait < 60kb -->
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&h=120&q=70" alt="David Sterling" class="author-avatar" width="52" height="52" loading="lazy">
+            <div class="author-details">
+              <h4>David Sterling</h4>
+              <p>42-Time Regular O-Negative Donor</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-quote">
+            "As an emergency trauma surgeon, seconds are the difference between life and irreversible organ failure. Red Hope's guaranteed 18-minute cold-chain courier delivery has saved hundreds of patients on my operating table."
+          </div>
+          <div class="testimonial-author-flex">
+            <!-- Optimized Unsplash doctor portrait < 60kb -->
+            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=120&h=120&q=70" alt="Dr. Aris Thorne" class="author-avatar" width="52" height="52" loading="lazy">
+            <div class="author-details">
+              <h4>Dr. Aris Thorne, MD, FACS</h4>
+              <p>Chief of Trauma Surgery, City General</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 10: UPCOMING CAMPS & COMPREHENSIVE FOOTER
+       ========================================================================== -->
+  <section class="camps-banner-section" data-aos="fade-up">
+    <div class="container camps-inner-flex">
+      <div class="camps-text">
+        <h3>Host a Blood Drive at Your Corporate Office or Campus</h3>
+        <p>We provide full mobile logistics, licensed phlebotomists, and refreshment stations at zero cost to your organization.</p>
+      </div>
+      <div>
+        <a href="404.html" class="btn btn-outline-white btn-lg">Partner With Us</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-col">
+          <a href="404.html" class="brand-logo" aria-label="Stackly Home" style="margin-bottom: 16px;">
+            <img src="logo_0104.webp" alt="Stackly Logo" class="brand-logo-img footer-logo-img">
+          </a>
+          <p style="font-size: 0.9rem; line-height: 1.6; color: #94A3B8; margin-bottom: 20px;">
+            A non-profit healthcare federation dedicated to zero preventable deaths from blood shortage through advanced transfusion medicine and humanitarian donor care.
+          </p>
+          <div style="font-size: 0.85rem; color: #CBD5E1; line-height: 1.5;">
+            <strong>Emergency Dispatch Desk:</strong><br>
+            <a href="404.html" style="color: #FF6B7F; font-size: 1.1rem; font-weight: 800; text-decoration: none;">+91 98765 43210</a> (24/7 Helpline)<br>
+            <span style="display: block; margin-top: 6px; color: #94A3B8;">Email: <a href="404.html" style="color: #CBD5E1; text-decoration: none;">info@stackly.com</a></span>
+            <span style="display: block; margin-top: 4px; color: #94A3B8;">MMR Complex, Chinna Thirupathi, Salem, Tamil Nadu 636008</span>
+          </div>
+
+          <div class="footer-social-links" aria-label="Follow Red Hope on Social Media">
+            <a href="404.html" class="social-icon-btn" aria-label="Facebook" onclick="redirectTo404(event)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+            <a href="404.html" class="social-icon-btn" aria-label="Twitter / X" onclick="redirectTo404(event)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href="404.html" class="social-icon-btn" aria-label="Instagram" onclick="redirectTo404(event)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="404.html" class="social-icon-btn" aria-label="LinkedIn" onclick="redirectTo404(event)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </a>
+            <a href="404.html" class="social-icon-btn" aria-label="YouTube" onclick="redirectTo404(event)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col footer-col-quick-links">
+          <h4>Quick Links</h4>
+          <ul class="footer-links-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Clinical Services</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html">Whole Blood Collection</a></li>
+            <li><a href="404.html">Plateletpheresis (SDP)</a></li>
+            <li><a href="404.html">Fresh Frozen Plasma</a></li>
+            <li><a href="404.html">Cord Blood &amp; Stem Cells</a></li>
+            <li><a href="404.html">Rare Blood Group Bank</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Organization</h4>
+          <ul class="footer-links-list">
+            <li><a href="404.html">About Red Hope</a></li>
+            <li><a href="404.html">AABB Accreditations</a></li>
+            <li><a href="404.html">Medical Science Journal</a></li>
+            <li><a href="404.html">Hospital Dispatch Desk</a></li>
+            <li><a href="404.html">Corporate Blood Camps</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Emergency Alert Ticker</h4>
+          <p style="font-size: 0.88rem; color: #94A3B8; line-height: 1.5;">
+            Subscribe for instant SMS/Email notifications when your specific blood type falls into critical regional shortage.
+          </p>
+          <form class="footer-newsletter-form" onsubmit="event.preventDefault(); window.location.href='404.html';">
+            <input type="email" class="footer-newsletter-input" placeholder="Your Email address" required>
+            <button type="submit" class="btn btn-primary btn-sm">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>
+          &copy; 2026 Red Hope Blood Bank &amp; Transfusion Medicine Foundation. All rights reserved.
+        </div>
+        <div style="display: flex; gap: 20px;">
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">HIPAA Compliance</a>
+          <a href="404.html">Clinical Governance</a>
+          <a href="404.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: AOS, GSAP & Main Application -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/liquid-hero.js"></script>
+  <script src="js/main.js"></script>
+<script>
+window.addEventListener('load', () => {
+    const docW = document.documentElement.clientWidth;
+    const scrollW = document.documentElement.scrollWidth;
+    const overflowing = [];
+    document.querySelectorAll('*').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.right > docW + 1 && rect.width > 0 && !el.closest('.dash-table-wrap')) {
+            overflowing.push(el.tagName + (el.className ? '.' + el.className.split(' ').join('.') : '') + ' (r:' + Math.round(rect.right) + ' > w:' + docW + ')');
+        }
+    });
+    const resultDiv = document.createElement('div');
+    resultDiv.id = 'RESPONSIVE_TEST_RESULT';
+    resultDiv.setAttribute('data-scrollw', scrollW);
+    resultDiv.setAttribute('data-docw', docW);
+    resultDiv.setAttribute('data-overflow', overflowing.join(' | '));
+    document.body.appendChild(resultDiv);
+});
+</script></body>
+</html>
+
+
