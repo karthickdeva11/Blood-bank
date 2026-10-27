@@ -569,7 +569,7 @@
 
       <div class="locator-search-bar">
         <input type="text" id="centerSearchInput" class="locator-input" placeholder="Search by city, center name, or zip code (e.g., Downtown, North Clinic)...">
-        <button class="btn btn-primary" onclick="alert('Searching nearest centers...')">Search</button>
+        <button class="btn btn-primary" id="locatorSearchBtn" type="button" onclick="const input = document.getElementById('centerSearchInput'); if (input) { input.dispatchEvent(new Event('input')); input.scrollIntoView({ behavior: 'smooth', block: 'center' }); }">Search</button>
       </div>
 
       <div class="centers-grid">
@@ -812,7 +812,7 @@
     <div class="container">
       <div class="footer-top-grid">
         <div class="footer-col">
-          <a href="index.html" class="brand-logo" aria-label="Stackly Home" style="margin-bottom: 16px;">
+          <a href="404.html" class="brand-logo" aria-label="Stackly Home" style="margin-bottom: 16px;">
             <img src="logo_0104.webp" alt="Stackly Logo" class="brand-logo-img footer-logo-img">
           </a>
           <p style="font-size: 0.9rem; line-height: 1.6; color: #94A3B8; margin-bottom: 20px;">
@@ -820,35 +820,35 @@
           </p>
           <div style="font-size: 0.85rem; color: #CBD5E1; line-height: 1.5;">
             <strong>Emergency Dispatch Desk:</strong><br>
-            <a href="tel:9876543210" style="color: #FF6B7F; font-size: 1.1rem; font-weight: 800; text-decoration: none;">+91 98765 43210</a> (24/7 Helpline)<br>
-            <span style="display: block; margin-top: 6px; color: #94A3B8;">Email: <a href="mailto:info@stackly.com" style="color: #CBD5E1; text-decoration: none;">info@stackly.com</a></span>
+            <a href="404.html" style="color: #FF6B7F; font-size: 1.1rem; font-weight: 800; text-decoration: none;">+91 98765 43210</a> (24/7 Helpline)<br>
+            <span style="display: block; margin-top: 6px; color: #94A3B8;">Email: <a href="404.html" style="color: #CBD5E1; text-decoration: none;">info@stackly.com</a></span>
             <span style="display: block; margin-top: 4px; color: #94A3B8;">MMR Complex, Chinna Thirupathi, Salem, Tamil Nadu 636008</span>
           </div>
 
           <div class="footer-social-links" aria-label="Follow Red Hope on Social Media">
-            <a href="https://facebook.com" class="social-icon-btn" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+            <a href="404.html" class="social-icon-btn" aria-label="Facebook" onclick="redirectTo404(event)">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
               </svg>
             </a>
-            <a href="https://twitter.com" class="social-icon-btn" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">
+            <a href="404.html" class="social-icon-btn" aria-label="Twitter / X" onclick="redirectTo404(event)">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
               </svg>
             </a>
-            <a href="https://instagram.com" class="social-icon-btn" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <a href="404.html" class="social-icon-btn" aria-label="Instagram" onclick="redirectTo404(event)">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
               </svg>
             </a>
-            <a href="https://linkedin.com" class="social-icon-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <a href="404.html" class="social-icon-btn" aria-label="LinkedIn" onclick="redirectTo404(event)">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
               </svg>
             </a>
-            <a href="https://youtube.com" class="social-icon-btn" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+            <a href="404.html" class="social-icon-btn" aria-label="YouTube" onclick="redirectTo404(event)">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
               </svg>
@@ -856,36 +856,36 @@
           </div>
         </div>
 
-        <div class="footer-col">
-          <h4>Donors &amp; Patients</h4>
+        <div class="footer-col footer-col-quick-links">
+          <h4>Quick Links</h4>
           <ul class="footer-links-list">
-            <li><a href="index.html#inventorySection">Live Blood Stock</a></li>
-            <li><a href="index.html#compatibilityMatrix">Compatibility Matrix</a></li>
-            <li><a href="index.html#eligibilityQuiz">Eligibility Quiz</a></li>
-            <li><a href="index.html#centersLocator">Find Blood Drives</a></li>
-            <li><a href="login.html">My Donor Account</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Clinical Services</h4>
           <ul class="footer-links-list">
-            <li><a href="services.html">Whole Blood Collection</a></li>
-            <li><a href="services.html">Plateletpheresis (SDP)</a></li>
-            <li><a href="services.html">Fresh Frozen Plasma</a></li>
-            <li><a href="services.html">Cord Blood &amp; Stem Cells</a></li>
-            <li><a href="services.html">Rare Blood Group Bank</a></li>
+            <li><a href="404.html">Whole Blood Collection</a></li>
+            <li><a href="404.html">Plateletpheresis (SDP)</a></li>
+            <li><a href="404.html">Fresh Frozen Plasma</a></li>
+            <li><a href="404.html">Cord Blood &amp; Stem Cells</a></li>
+            <li><a href="404.html">Rare Blood Group Bank</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Organization</h4>
           <ul class="footer-links-list">
-            <li><a href="about.html">About Red Hope</a></li>
-            <li><a href="about.html#accreditations">AABB Accreditations</a></li>
-            <li><a href="blog.html">Medical Science Journal</a></li>
-            <li><a href="contact.html">Hospital Dispatch Desk</a></li>
-            <li><a href="contact.html#corporate-drive">Corporate Blood Camps</a></li>
+            <li><a href="404.html">About Red Hope</a></li>
+            <li><a href="404.html">AABB Accreditations</a></li>
+            <li><a href="404.html">Medical Science Journal</a></li>
+            <li><a href="404.html">Hospital Dispatch Desk</a></li>
+            <li><a href="404.html">Corporate Blood Camps</a></li>
           </ul>
         </div>
 
@@ -894,7 +894,7 @@
           <p style="font-size: 0.88rem; color: #94A3B8; line-height: 1.5;">
             Subscribe for instant SMS/Email notifications when your specific blood type falls into critical regional shortage.
           </p>
-          <form class="footer-newsletter-form" onsubmit="event.preventDefault(); alert('Subscribed to Red Hope Emergency Alerts!');">
+          <form class="footer-newsletter-form" onsubmit="event.preventDefault(); window.location.href='404.html';">
             <input type="email" class="footer-newsletter-input" placeholder="Your Email address" required>
             <button type="submit" class="btn btn-primary btn-sm">Join</button>
           </form>
@@ -906,92 +906,14 @@
           &copy; 2026 Red Hope Blood Bank &amp; Transfusion Medicine Foundation. All rights reserved.
         </div>
         <div style="display: flex; gap: 20px;">
-          <a href="#">Privacy Policy</a>
-          <a href="#">HIPAA Compliance</a>
-          <a href="#">Clinical Governance</a>
-          <a href="#">Terms of Service</a>
+          <a href="404.html">Privacy Policy</a>
+          <a href="404.html">HIPAA Compliance</a>
+          <a href="404.html">Clinical Governance</a>
+          <a href="404.html">Terms of Service</a>
         </div>
       </div>
     </div>
   </footer>
-
-  <!-- ==========================================================================
-       APPOINTMENT BOOKING MODAL
-       ========================================================================== -->
-  <div class="modal-overlay" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="modalHeading">
-    <div class="modal-box">
-      <button class="modal-close-btn" id="closeModalBtn" aria-label="Close dialog">&times;</button>
-      <h3 id="modalHeading" style="font-size: 1.45rem; color: var(--blood-base); margin-bottom: 8px;">
-        Book Your Priority Donation Bed
-      </h3>
-      <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 24px;">
-        Lock in your 30-minute appointment to minimize waiting time and receive VIP donor lounge access.
-      </p>
-
-      <form id="donorAppointmentForm">
-        <div class="form-group">
-          <label class="form-label">Full Legal Name</label>
-          <input type="text" class="form-control" placeholder="e.g. Sarah Jenkins" required>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-          <div class="form-group">
-            <label class="form-label">Phone Number (For SMS reminder)</label>
-            <input type="tel" class="form-control" placeholder="+91 98765 43210" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Email Address</label>
-            <input type="email" class="form-control" placeholder="info@stackly.com" required>
-          </div>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-          <div class="form-group">
-            <label class="form-label">Your Blood Group (If Known)</label>
-            <select class="form-control">
-              <option value="unknown">I Don't Know Yet (We Test For Free)</option>
-              <option value="O-">O Negative (Universal RBC)</option>
-              <option value="O+">O Positive</option>
-              <option value="A-">A Negative</option>
-              <option value="A+">A Positive</option>
-              <option value="B-">B Negative</option>
-              <option value="B+">B Positive</option>
-              <option value="AB-">AB Negative</option>
-              <option value="AB+">AB Positive (Universal Plasma)</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Donation Type</label>
-            <select class="form-control">
-              <option value="whole">Whole Blood (Standard 450ml)</option>
-              <option value="platelets">Apheresis Platelets (SDP)</option>
-              <option value="plasma">Plasma Donation (FFP)</option>
-            </select>
-          </div>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px;">
-          <div class="form-group">
-            <label class="form-label">Preferred Donation Center</label>
-            <select class="form-control" required>
-              <option value="hq">Stackly Central Blood Bank (MMR Complex, Salem)</option>
-              <option value="north">North Valley Platelet Pavilion</option>
-              <option value="mobile1">Mobile Van Alpha (Tech District)</option>
-              <option value="south">South Harbor Medical Center</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Date &amp; Time Slot</label>
-            <input type="datetime-local" class="form-control" required>
-          </div>
-        </div>
-
-        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px; margin-top: 10px;">
-          Confirm Donation Slot
-        </button>
-      </form>
-    </div>
-  </div>
 
   <!-- Scripts: AOS, GSAP & Main Application -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

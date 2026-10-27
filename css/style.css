@@ -2136,6 +2136,11 @@ h1, h2, h3, h4, h5, h6 {
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 @media (max-width: 480px) {
   .auth-card {
     padding: 30px 20px;
@@ -2505,6 +2510,27 @@ h1, h2, h3, h4, h5, h6 {
 .dash-content {
   padding: 30px 32px 50px;
   flex: 1;
+}
+
+/* Dashboard Tabbed Pane Viewport Switching */
+.dash-tab-pane {
+  display: none;
+  animation: dashPaneFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.dash-tab-pane.active {
+  display: block;
+}
+
+@keyframes dashPaneFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Welcome Banner */
@@ -2999,22 +3025,13 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 4px;
 }
 
-/* Interactive Modal */
-.dash-modal-backdrop {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.5);
-  backdrop-filter: blur(4px);
-  z-index: 2000;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.dash-modal-backdrop.active {
-  display: flex;
-  animation: authFadeIn 0.25s ease-out;
+/* Interactive Modal (Deactivated - No Popups Allowed) */
+.modal-overlay,
+.dash-modal-backdrop,
+.validation-toast-overlay {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
 }
 
 .dash-modal-card {
@@ -3269,13 +3286,13 @@ select.form-control.is-valid {
    404 ERROR PAGE STYLING & ANIMATIONS
    ========================================================================== */
 .error-page-wrapper {
-  min-height: calc(100vh - 80px);
+  min-height: 100vh;
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px 20px 100px;
+  padding: 40px 20px;
   background: radial-gradient(circle at 50% 25%, rgba(200, 16, 46, 0.09) 0%, rgba(248, 250, 252, 0.95) 60%), #F8FAFC;
 }
 
@@ -3481,7 +3498,7 @@ select.form-control.is-valid {
   justify-content: center;
   gap: 18px;
   flex-wrap: wrap;
-  margin: 32px auto 44px auto;
+  margin: 36px auto 0 auto;
   max-width: 600px;
 }
 
@@ -3546,164 +3563,7 @@ select.form-control.is-valid {
   transform: translateY(0);
 }
 
-.error-search-wrapper {
-  max-width: 540px;
-  margin: 0 auto 46px;
-  position: relative;
-}
-
-.error-search-input-box {
-  display: flex;
-  align-items: center;
-  background: #FFFFFF;
-  border: 2px solid var(--secondary-border);
-  border-radius: var(--radius-full);
-  padding: 6px 8px 6px 20px;
-  box-shadow: var(--shadow-md);
-  transition: var(--transition);
-}
-
-.error-search-input-box:focus-within {
-  border-color: var(--blood-crimson);
-  box-shadow: 0 8px 24px rgba(200, 16, 46, 0.15);
-}
-
-.error-search-input-box input {
-  flex: 1;
-  border: none;
-  outline: none;
-  font-size: 0.95rem;
-  color: var(--text-primary);
-  background: transparent;
-}
-
-.error-search-suggestions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 14px;
-  font-size: 0.84rem;
-  color: var(--text-muted);
-}
-
-.error-search-tag {
-  background: #FFFFFF;
-  border: 1px solid var(--secondary-border);
-  padding: 4px 12px;
-  border-radius: var(--radius-full);
-  color: var(--text-secondary);
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.error-search-tag:hover {
-  background: var(--blood-soft);
-  color: var(--blood-primary);
-  border-color: var(--blood-tint);
-  transform: translateY(-2px);
-}
-
-/* 404 Quick Recovery Navigation Cards */
-.error-quick-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-top: 20px;
-  text-align: left;
-}
-
-.error-nav-card {
-  background: #FFFFFF;
-  border: 1px solid var(--secondary-border);
-  border-radius: var(--radius-lg);
-  padding: 22px 20px;
-  box-shadow: var(--shadow-sm);
-  transition: var(--transition);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: relative;
-  overflow: hidden;
-}
-
-.error-nav-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--blood-base), var(--blood-crimson));
-  opacity: 0;
-  transition: var(--transition);
-}
-
-.error-nav-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-  border-color: rgba(200, 16, 46, 0.2);
-}
-
-.error-nav-card:hover::before {
-  opacity: 1;
-}
-
-.error-card-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-md);
-  background: var(--blood-soft);
-  color: var(--blood-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 14px;
-}
-
-.error-card-title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--secondary-dark);
-  margin-bottom: 6px;
-}
-
-.error-card-desc {
-  font-size: 0.82rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  margin-bottom: 12px;
-}
-
-.error-card-link {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--blood-primary);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.error-card-link svg {
-  transition: transform 0.2s ease;
-}
-
-.error-nav-card:hover .error-card-link svg {
-  transform: translateX(4px);
-}
-
-@media (max-width: 900px) {
-  .error-quick-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 576px) {
-  .error-quick-cards-grid {
-    grid-template-columns: 1fr;
-  }
   .error-actions-group {
     flex-direction: column;
     width: 100%;
@@ -3712,5 +3572,6 @@ select.form-control.is-valid {
     width: 100%;
   }
 }
+
 
 

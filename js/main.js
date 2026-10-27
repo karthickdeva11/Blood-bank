@@ -9,6 +9,19 @@
  * - Mobile Navigation Toggle
  */
 
+// Universal 404 Redirection Helper (Immediate global access)
+window.redirectTo404 = function(e) {
+  if (e) {
+    if (e.preventDefault) e.preventDefault();
+    if (e.stopPropagation) e.stopPropagation();
+  }
+  try {
+    sessionStorage.setItem('redhope_prev_page', window.location.href);
+    sessionStorage.setItem('redhope_prev_scroll', window.scrollY.toString());
+  } catch (err) {}
+  window.location.href = '404.html';
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
@@ -430,26 +443,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Booking Modal Close Handlers
-  const modalOverlay = document.getElementById('bookingModal');
-  const closeModalBtn = document.getElementById('closeModalBtn');
-  const bookingForm = document.getElementById('donorAppointmentForm');
-
-  if (closeModalBtn && modalOverlay) {
-    closeModalBtn.addEventListener('click', () => {
-      modalOverlay.classList.remove('active');
-    });
-
-    modalOverlay.addEventListener('click', (e) => {
-      if (e.target === modalOverlay) modalOverlay.classList.remove('active');
-    });
-  }
-
   // Universal Form Validation & Redirection to 404
   function validateFormAndRedirectTo404(form, event) {
     if (event) {
       event.preventDefault();
       event.stopPropagation();
+    }
+
+    // Never intercept authentication forms - they redirect to their respective dashboards
+    if (!form || form.id === 'loginForm' || form.id === 'signupForm') {
+      return false;
     }
 
     // Clear previous errors
@@ -552,25 +555,12 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     }
 
-    // Display validation toast notification
-    let toast = document.querySelector('.validation-toast-overlay');
-    if (!toast) {
-      toast = document.createElement('div');
-      toast.className = 'validation-toast-overlay';
-      toast.innerHTML = `
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        <span>Information validated! Routing request to central records...</span>
-      `;
-      document.body.appendChild(toast);
-    }
-    setTimeout(() => toast.classList.add('show'), 50);
-
-    // Redirect to custom 404 page after brief verification pause
+    // Redirect to custom 404 page after brief verification pause (no popup toast)
     setTimeout(() => {
       sessionStorage.setItem('redhope_prev_page', window.location.href);
       sessionStorage.setItem('redhope_prev_scroll', window.scrollY.toString());
       window.location.href = '404.html';
-    }, 700);
+    }, 500);
 
     return true;
   }
@@ -587,37 +577,135 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Attach validation to all forms across the site
+  // Attach validation to all forms across the site (excluding auth forms)
   document.querySelectorAll('form').forEach(form => {
+    if (form.id === 'loginForm' || form.id === 'signupForm') return;
     form.addEventListener('submit', (e) => {
       validateFormAndRedirectTo404(form, e);
     });
   });
 
-  // Handle appointment booking modal form
-  if (bookingForm) {
-    bookingForm.addEventListener('submit', (e) => {
-      validateFormAndRedirectTo404(bookingForm, e);
-    });
+  // Universal 404 Redirection Helper
+  function redirectTo404(e) {
+    if (e && e.preventDefault) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    sessionStorage.setItem('redhope_prev_page', window.location.href);
+    sessionStorage.setItem('redhope_prev_scroll', window.scrollY.toString());
+    window.location.href = '404.html';
   }
+  window.redirectTo404 = redirectTo404;
 
-  // Universal Content Link & Button Redirection to 404 (except navbar and footer)
+  // Universal Dashboard Redirection for Unused Links and Buttons
   document.addEventListener('click', (e) => {
-    // If already on the 404 error page, allow all links and recovery buttons to work normally
-    if (window.location.pathname.includes('404.html') || window.location.pathname.endsWith('/404')) {
+    const isDashboard = window.location.pathname.includes('donor-dashboard.html') || window.location.pathname.includes('admin-dashboard.html');
+    if (!isDashboard) return;
+
+    const element = e.target.closest('a, button');
+    if (!element) return;
+
+    // Explicit Social Media Icons Redirection Check
+    if (element.closest('.social-icon-btn, .footer-social-links a, a[aria-label*="Facebook"], a[aria-label*="Twitter"], a[aria-label*="Instagram"], a[aria-label*="LinkedIn"], a[aria-label*="YouTube"], [data-social]')) {
+      window.redirectTo404(e);
+      return;
+    }
+
+    // 1. Allow sidebar tab items and in-page tab switches
+    if (element.hasAttribute('data-tab') ||
+        element.getAttribute('onclick')?.includes('switchDashboardTab') ||
+        element.closest('[data-tab], [onclick*="switchDashboardTab"]')) {
+      return;
+    }
+
+    // 2. Allow mobile sidebar toggle and close controls
+    if (element.classList.contains('dash-sidebar-toggle') ||
+        element.classList.contains('dash-sidebar-close') ||
+        element.closest('.dash-sidebar-toggle, .dash-sidebar-close')) {
+      return;
+    }
+
+    // 3. Allow real page links
+    const href = element.getAttribute('href');
+    if (href && (href.includes('index.html') || href.includes('login.html') || href.includes('donor-dashboard.html') || href.includes('admin-dashboard.html'))) {
+      return;
+    }
+
+    // 4. Allow logout buttons
+    if (element.classList.contains('dash-logout-btn') || element.getAttribute('onclick')?.includes('logoutUser')) {
+      return;
+    }
+
+    // 5. Form submission buttons validate form and redirect to 404
+    if (element.type === 'submit' || element.closest('form')) {
+      const form = element.closest('form');
+      if (form) {
+        if (!form.checkValidity()) {
+          return; // Let native HTML5 validation show hints for missing fields
+        }
+        redirectTo404(e);
+      }
+      return;
+    }
+
+    // 6. ALL other unused links & buttons in the dashboards redirect to 404
+    redirectTo404(e);
+  });
+
+  // Dashboard topbar search inputs redirect to 404 on Enter
+  document.querySelectorAll('.dash-search-input').forEach(input => {
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        redirectTo404();
+      }
+    });
+  });
+
+  // Universal Content Link & Button Redirection to 404 (except navbar, footer, auth, and dashboards)
+  document.addEventListener('click', (e) => {
+    // If on 404, login, or dashboards, allow standard interactive navigation
+    if (window.location.pathname.includes('404.html') || window.location.pathname.endsWith('/404') ||
+        window.location.pathname.includes('login.html') || window.location.pathname.endsWith('/login') ||
+        window.location.pathname.includes('donor-dashboard.html') || window.location.pathname.includes('admin-dashboard.html')) {
       return;
     }
 
     const element = e.target.closest('a, button');
     if (!element) return;
 
-    // 1. Check if inside navbar (header, nav links, brand logo, mobile drawer)
-    const isInNavbar = element.closest('header, .header-main, nav, .mobile-menu-drawer, .nav-inner, .brand-logo');
-    if (isInNavbar) return;
+    // Explicit Social Media Icons Redirection Check (Immediate Priority)
+    const isSocialLink = element.closest('.social-icon-btn, .footer-social-links a, a[aria-label*="Facebook"], a[aria-label*="Twitter"], a[aria-label*="Instagram"], a[aria-label*="LinkedIn"], a[aria-label*="YouTube"], [data-social]');
+    if (isSocialLink) {
+      window.redirectTo404(e);
+      return;
+    }
 
-    // 2. Check if inside footer (including social links and footer nav)
+    // Allow direct navigation to login or dashboards
+    const href = element.getAttribute('href');
+    if (href && (href.includes('login.html') || href.includes('donor-dashboard.html') || href.includes('admin-dashboard.html'))) {
+      return;
+    }
+
+    // 1. Check if inside footer: ONLY the Quick Links column is allowed; all other footer columns & links redirect to 404!
     const isInFooter = element.closest('footer, .footer-main, .footer-bottom-bar, .footer-inner, .site-footer');
-    if (isInFooter) return;
+    if (isInFooter) {
+      const isQuickLinksCol = element.closest('.footer-col-quick-links') ||
+                             (element.closest('.footer-col') && element.closest('.footer-col').querySelector('h4')?.textContent.trim() === 'Quick Links');
+      if (isQuickLinksCol) {
+        return; // Allow Quick Links (Home, About, Services, Blog, Contact)
+      }
+      // All other footer columns, brand logo, social links, bottom bar links, and newsletter buttons redirect to 404!
+      e.preventDefault();
+      sessionStorage.setItem('redhope_prev_page', window.location.href);
+      sessionStorage.setItem('redhope_prev_scroll', window.scrollY.toString());
+      window.location.href = '404.html';
+      return;
+    }
+
+    // 2. Check if inside navbar (header, nav links, brand logo, mobile drawer)
+    const isInNavbar = element.closest('header, .header-main, nav, .mobile-menu-drawer, .nav-inner');
+    if (isInNavbar) return;
 
     // 3. Form submit buttons or inputs inside forms are handled by form validation
     if (element.type === 'submit' || element.closest('form')) {
