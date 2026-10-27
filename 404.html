@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Lifeline Disconnected | Red Hope Blood Bank</title>
+  <meta name="description" content="Error 404. The blood unit or record you requested could not be located in the Red Hope Central Blood Bank database.">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/webp" href="logo_0104.webp">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       SECTION 1: 404 HERO ANIMATED ERROR CONTAINER (NO NAVBAR)
+       ========================================================================== -->
+  <main class="error-page-wrapper" id="errorWrapper">
+    <div class="error-bg-glow"></div>
+    <div class="error-grid-overlay"></div>
+
+    <!-- Floating Erythrocyte (RBC) decorative elements -->
+    <div class="error-floating-elements" aria-hidden="true">
+      <svg class="floating-rbc floating-rbc-1" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="42" fill="#C8102E" fill-opacity="0.3" stroke="#C8102E" stroke-width="3"/>
+        <circle cx="50" cy="50" r="22" fill="#8B0000" fill-opacity="0.4"/>
+      </svg>
+      <svg class="floating-rbc floating-rbc-2" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="40" fill="#EF233C" fill-opacity="0.25" stroke="#EF233C" stroke-width="3"/>
+        <circle cx="50" cy="50" r="20" fill="#A60F2D" fill-opacity="0.35"/>
+      </svg>
+      <svg class="floating-rbc floating-rbc-3" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="45" fill="#C8102E" fill-opacity="0.2" stroke="#C8102E" stroke-width="3"/>
+        <circle cx="50" cy="50" r="24" fill="#5A0000" fill-opacity="0.3"/>
+      </svg>
+      <svg class="floating-rbc floating-rbc-4" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="38" fill="#EF233C" fill-opacity="0.3" stroke="#EF233C" stroke-width="2.5"/>
+        <circle cx="50" cy="50" r="18" fill="#8B0000" fill-opacity="0.4"/>
+      </svg>
+      <svg class="floating-rbc floating-rbc-5" viewBox="0 0 100 100" fill="none">
+        <circle cx="50" cy="50" r="35" fill="#C8102E" fill-opacity="0.25" stroke="#C8102E" stroke-width="2.5"/>
+        <circle cx="50" cy="50" r="16" fill="#A60F2D" fill-opacity="0.3"/>
+      </svg>
+    </div>
+
+    <div class="container">
+      <div class="error-main-card">
+        
+        <!-- Centered Brand Identity Logo -->
+        <div class="error-brand-header" data-aos="fade-down" data-aos-duration="600">
+          <a href="index.html" class="error-brand-link" aria-label="Red Hope Blood Bank Home">
+            <img src="logo_0104.webp" alt="Red Hope Logo" class="brand-logo-img">
+          </a>
+        </div>
+
+        <!-- Animated Badge Pill -->
+        <div class="error-badge-pill" data-aos="fade-down" data-aos-duration="600" data-aos-delay="100">
+          <span class="error-badge-dot"></span>
+          Emergency Code 404 — Specimen Not Located
+        </div>
+
+        <!-- Giant 404 Animated Visual -->
+        <div class="error-visual-container" id="errorVisual" data-aos="zoom-in" data-aos-duration="800">
+          <div class="error-number error-digit-left">4</div>
+          
+          <!-- Central Animated Blood Droplet / Vial with Cardiac Pulse -->
+          <div class="error-center-vial" id="errorDropletVial">
+            <div class="error-radar-ring"></div>
+            
+            <!-- Fluid Blood Drop SVG -->
+            <svg class="error-droplet-svg" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="bloodGrad404" x1="60" y1="10" x2="60" y2="150" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#FF4D6D" />
+                  <stop offset="35%" stop-color="#C8102E" />
+                  <stop offset="75%" stop-color="#8B0000" />
+                  <stop offset="100%" stop-color="#4A0000" />
+                </linearGradient>
+                <filter id="bloodGlow404" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="6" result="blur" />
+                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+              </defs>
+              <!-- Outer glowing aura -->
+              <path d="M60 12 C60 12 110 76 110 108 C110 136 88 154 60 154 C32 154 10 136 10 108 C10 76 60 12 60 12 Z" 
+                    fill="url(#bloodGrad404)" filter="url(#bloodGlow404)" />
+              <!-- Highlight gloss -->
+              <ellipse cx="44" cy="92" rx="14" ry="24" transform="rotate(-20 44 92)" fill="#FFFFFF" fill-opacity="0.35" />
+              <!-- Inner pulse ring -->
+              <circle cx="60" cy="112" r="18" fill="#FFFFFF" fill-opacity="0.15" />
+            </svg>
+
+            <!-- Cardiac Rhythm ECG SVG Wave -->
+            <svg class="error-ecg-svg" viewBox="0 0 140 40" fill="none">
+              <path class="ecg-pulse-path" d="M0 20 L40 20 L50 6 L60 34 L70 12 L78 26 L86 20 L140 20" 
+                    stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div class="error-number error-digit-right">4</div>
+        </div>
+
+        <!-- Headline & Description -->
+        <h1 class="error-headline" data-aos="fade-up" data-aos-delay="150">
+          Lifeline Disconnected. <br>
+          <span>This Specimen Cannot Be Located.</span>
+        </h1>
+
+        <p class="error-subtitle" data-aos="fade-up" data-aos-delay="250">
+          The requested donor record, laboratory sample, or transfusion ward page does not exist in our regional database or may have been safely moved to another cold-chain facility.
+        </p>
+
+        <!-- Primary Action Buttons: Exactly 2 Recovery Buttons -->
+        <div class="error-actions-group" data-aos="fade-up" data-aos-delay="300">
+          <button type="button" class="btn btn-primary btn-lg error-action-btn" onclick="goBackToPreviousArea(event)" id="btnBackPrevious" aria-label="Back to Previous Page">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span>Back to Previous Page</span>
+          </button>
+          
+          <a href="index.html" class="btn btn-outline btn-lg error-action-btn" id="btnBackHome" aria-label="Back to Home">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span>Back to Home</span>
+          </a>
+        </div>
+
+        <!-- Search Bar with Instant Suggestions -->
+        <div class="error-search-wrapper" data-aos="fade-up" data-aos-delay="350">
+          <form class="error-search-input-box" onsubmit="event.preventDefault(); handleSearch(event);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" stroke-width="2.5" style="margin-right: 10px;">
+              <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="errorSearchInput" placeholder="Search services, blood groups, or donor clinics..." aria-label="Search blood bank services">
+            <button type="submit" class="btn btn-primary btn-sm" style="padding: 8px 18px; border-radius: var(--radius-full);">
+              Search
+            </button>
+          </form>
+
+          <div class="error-search-suggestions">
+            <span>Quick search:</span>
+            <a href="index.html#inventorySection" class="error-search-tag">O- Universal RBC</a>
+            <a href="services.html" class="error-search-tag">Apheresis Platelets</a>
+            <a href="index.html#centersLocator" class="error-search-tag">Salem Central HQ</a>
+            <a href="login.html" class="error-search-tag">Donor Portal</a>
+          </div>
+        </div>
+
+        <!-- Quick Recovery Navigation Cards Grid -->
+        <div class="error-quick-cards-grid" data-aos="fade-up" data-aos-delay="400">
+          <a href="index.html#inventorySection" class="error-nav-card">
+            <div>
+              <div class="error-card-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+              </div>
+              <h3 class="error-card-title">Live Blood Stock</h3>
+              <p class="error-card-desc">Check real-time regional reserves for all 8 ABO/Rh blood groups.</p>
+            </div>
+            <span class="error-card-link">View Stock <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </a>
+
+          <a href="login.html" class="error-nav-card">
+            <div>
+              <div class="error-card-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              </div>
+              <h3 class="error-card-title">Donor Portal</h3>
+              <p class="error-card-desc">Access donor records, digital blood passport, and donation history.</p>
+            </div>
+            <span class="error-card-link">Sign In <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </a>
+
+          <a href="contact.html" class="error-nav-card">
+            <div>
+              <div class="error-card-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+              </div>
+              <h3 class="error-card-title">ICU Dispatch Desk</h3>
+              <p class="error-card-desc">Priority requisition pipeline for Level-1 trauma and obstetric emergencies.</p>
+            </div>
+            <span class="error-card-link">Contact Desk <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </a>
+
+          <a href="about.html" class="error-nav-card">
+            <div>
+              <div class="error-card-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              </div>
+              <h3 class="error-card-title">AABB Accreditations</h3>
+              <p class="error-card-desc">Review international testing standards, NAT screening, and safety protocols.</p>
+            </div>
+            <span class="error-card-link">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       SECTION 3: FOOTER
+       ========================================================================== -->
+  <footer class="footer-main">
+    <div class="container footer-inner">
+      <div class="footer-col" style="flex: 1.4;">
+        <a href="index.html" class="brand-logo" aria-label="Stackly Home" style="margin-bottom: 16px;">
+          <img src="logo_0104.webp" alt="Stackly Logo" class="brand-logo-img">
+        </a>
+        <p style="font-size: 0.9rem; color: #94A3B8; line-height: 1.6; margin-bottom: 18px;">
+          Red Hope is an autonomous, non-profit transfusion medicine service and scientific research center committed to eliminating regional blood shortages.
+        </p>
+        <div style="font-size: 0.88rem; color: #E2E8F0;">
+          <strong>24/7 Trauma Hotline:</strong>
+          <a href="tel:9876543210" style="color: #FF6B7F; font-size: 1.1rem; font-weight: 800; text-decoration: none; display: block; margin-top: 4px;">
+            +91 98765 43210
+          </a>
+        </div>
+
+        <div class="footer-social-links" aria-label="Follow Red Hope on Social Media">
+          <a href="https://facebook.com" class="social-icon-btn" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="https://twitter.com" class="social-icon-btn" aria-label="Twitter / X" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+          <a href="https://instagram.com" class="social-icon-btn" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="https://linkedin.com" class="social-icon-btn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+          <a href="https://youtube.com" class="social-icon-btn" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-nav-list">
+          <li><a href="index.html#inventorySection">Live Blood Stock</a></li>
+          <li><a href="index.html#compatibilityMatrix">Compatibility Matrix</a></li>
+          <li><a href="index.html#eligibilityQuiz">Eligibility Quiz</a></li>
+          <li><a href="index.html#centersLocator">Find Blood Drives</a></li>
+          <li><a href="login.html">My Donor Account</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Clinical Services</h4>
+        <ul class="footer-nav-list">
+          <li><a href="services.html">Whole Blood Collection</a></li>
+          <li><a href="services.html">Plateletpheresis (SDP)</a></li>
+          <li><a href="services.html">Fresh Frozen Plasma</a></li>
+          <li><a href="services.html">Cord Blood &amp; Stem Cells</a></li>
+          <li><a href="services.html">Rare Blood Group Bank</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col" style="flex: 1.2;">
+        <h4 class="footer-heading">Critical Alert Dispatch</h4>
+        <p style="font-size: 0.88rem; color: #94A3B8; line-height: 1.5;">
+          Subscribe for instant SMS/Email notifications when your specific blood type falls into critical regional shortage.
+        </p>
+        <form class="footer-newsletter-form">
+          <input type="email" class="footer-newsletter-input" placeholder="Your Email address" required>
+          <button type="submit" class="btn btn-primary btn-sm">Join</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>
+        &copy; 2026 Red Hope Blood Bank &amp; Transfusion Medicine Foundation. All rights reserved.
+      </div>
+      <div style="display: flex; gap: 20px;">
+        <a href="#">Privacy Policy</a>
+        <a href="#">HIPAA Compliance</a>
+        <a href="#">Clinical Governance</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: AOS, GSAP, and Main -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- 404 Specific Interactive GSAP Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof gsap !== 'undefined') {
+        // Floating physics for the central droplet
+        gsap.to('#errorDropletVial', {
+          y: -14,
+          duration: 2.4,
+          repeat: -1,
+          yoyo: true,
+          ease: 'power1.inOut'
+        });
+
+        // Subtly float the left and right "4"s with opposing phases
+        gsap.to('.error-digit-left', {
+          y: -10,
+          rotation: -2,
+          duration: 3,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut'
+        });
+
+        gsap.to('.error-digit-right', {
+          y: 10,
+          rotation: 2,
+          duration: 3.2,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+          delay: 0.5
+        });
+
+        // Floating erythrocytes in background
+        gsap.utils.toArray('.floating-rbc').forEach((rbc, i) => {
+          gsap.to(rbc, {
+            y: (i % 2 === 0 ? -25 : 25),
+            x: (i % 2 === 0 ? 15 : -15),
+            rotation: 360,
+            duration: 10 + i * 2,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut'
+          });
+        });
+
+        // Interactive mouse parallax on 404 scene
+        const errorWrapper = document.getElementById('errorWrapper');
+        const errorVisual = document.getElementById('errorVisual');
+        if (errorWrapper && errorVisual) {
+          errorWrapper.addEventListener('mousemove', (e) => {
+            const rect = errorWrapper.getBoundingClientRect();
+            const relX = (e.clientX - rect.left) / rect.width - 0.5;
+            const relY = (e.clientY - rect.top) / rect.height - 0.5;
+
+            gsap.to(errorVisual, {
+              rotationY: relX * 18,
+              rotationX: -relY * 18,
+              transformPerspective: 800,
+              ease: 'power2.out',
+              duration: 0.6
+            });
+          });
+
+          errorWrapper.addEventListener('mouseleave', () => {
+            gsap.to(errorVisual, {
+              rotationY: 0,
+              rotationX: 0,
+              ease: 'power2.out',
+              duration: 0.8
+            });
+          });
+        }
+      }
+    });
+
+    // Intelligent Back to Previous Area Navigation
+    function goBackToPreviousArea(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      const prevPage = sessionStorage.getItem('redhope_prev_page');
+      const prevScroll = sessionStorage.getItem('redhope_prev_scroll');
+
+      // Preserve scroll target coordinate
+      if (prevScroll !== null) {
+        sessionStorage.setItem('redhope_restore_scroll', prevScroll);
+      }
+
+      // Check if browser history has a valid caller entry
+      const hasHistory = window.history.length > 1;
+      const ref = document.referrer;
+      const isInternal = ref && !ref.includes('404.html');
+
+      if (hasHistory && (isInternal || prevPage)) {
+        window.history.back();
+        // Fallback watchdog: if history.back() does not unload within 250ms
+        setTimeout(() => {
+          if (prevPage && !prevPage.includes('404.html')) {
+            window.location.href = prevPage;
+          } else {
+            window.location.href = 'index.html';
+          }
+        }, 250);
+      } else if (prevPage && !prevPage.includes('404.html')) {
+        window.location.href = prevPage;
+      } else {
+        window.location.href = 'index.html';
+      }
+    }
+
+    // Search bar helper
+    function handleSearch(e) {
+      e.preventDefault();
+      const val = document.getElementById('errorSearchInput').value.trim().toLowerCase();
+      if (!val) return;
+      if (val.includes('donor') || val.includes('login') || val.includes('sign')) {
+        window.location.href = 'login.html';
+      } else if (val.includes('stock') || val.includes('inventory') || val.includes('blood') || val.includes('o-') || val.includes('a+')) {
+        window.location.href = 'index.html#inventorySection';
+      } else if (val.includes('service') || val.includes('platelet') || val.includes('plasma')) {
+        window.location.href = 'services.html';
+      } else if (val.includes('contact') || val.includes('dispatch') || val.includes('help') || val.includes('phone')) {
+        window.location.href = 'contact.html';
+      } else {
+        window.location.href = 'index.html';
+      }
+    }
+  </script>
+</body>
+</html>

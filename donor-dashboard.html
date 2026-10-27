@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Donor Portal &amp; Digital Passport — Red Hope &amp; Stackly</title>
   <meta name="description" content="Personal donor portal displaying digital blood donor passport, vital health screening metrics, donation history timeline, and next appointment scheduling.">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/webp" href="logo_0104.webp">
 </head>
@@ -197,7 +198,7 @@
         <div class="dash-2col-grid" id="passportSection">
           
           <!-- Digital Passport Card Mockup -->
-          <div class="dash-card">
+          <div class="dash-card" data-aos="fade-up">
             <div class="dash-card-header">
               <div>
                 <h2 class="dash-card-title">
@@ -247,7 +248,7 @@
           </div>
 
           <!-- Free Vital Health Screenings Card -->
-          <div class="dash-card" id="vitalsSection">
+          <div class="dash-card" id="vitalsSection" data-aos="fade-up">
             <div class="dash-card-header">
               <div>
                 <h2 class="dash-card-title">
@@ -294,7 +295,7 @@
         </div>
 
         <!-- Donation History & Hospital Infusion Timeline -->
-        <section class="dash-card" id="historySection">
+        <section class="dash-card" id="historySection" data-aos="fade-up">
           <div class="dash-card-header">
             <div>
               <h2 class="dash-card-title">
@@ -352,7 +353,7 @@
         </section>
 
         <!-- Donor Lounges & Mobile Bus Showcase -->
-        <section class="dash-card">
+        <section class="dash-card" data-aos="fade-up">
           <div class="dash-card-header">
             <div>
               <h2 class="dash-card-title">
@@ -454,6 +455,9 @@
     </div>
   </div>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="js/main.js"></script>
   <script>
     // Load session user details
@@ -483,8 +487,11 @@
 
     function handleBookSubmit(e) {
       e.preventDefault();
-      alert('Appointment Confirmed! We have reserved your donation slot. A calendar invitation and preparation guidelines (hydration & iron tips) have been sent to your email.');
-      closeBookModal();
+      if (window.validateFormAndRedirectTo404) {
+        window.validateFormAndRedirectTo404(e.target, e);
+      } else {
+        window.location.href = '404.html';
+      }
     }
 
     function logoutUser() {

@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login &amp; Sign Up — Stackly</title>
   <meta name="description" content="Sign in or create your account to access the Donor and Administrative management portal.">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/webp" href="logo_0104.webp">
 </head>
 <body class="auth-page-body">
 
   <main class="auth-container">
-    <div class="auth-card">
+    <div class="auth-card" data-aos="zoom-in" data-aos-duration="700">
       
       <!-- Card Brand Header -->
       <header class="auth-card-header">
@@ -264,65 +265,22 @@
     // Login Form Submit
     function handleLoginSubmit(e) {
       e.preventDefault();
-      const role = document.getElementById('loginRole').value;
-      const email = document.getElementById('loginEmail').value.trim();
-      const roleName = role === 'admin' ? 'Admin' : 'Donor';
-
-      // Save user session for personalization in dashboard
-      const userSession = {
-        email: email,
-        role: role,
-        name: role === 'admin' ? 'Dr. Sarah Chen' : 'David Sterling',
-        loginTime: new Date().toISOString()
-      };
-      try {
-        localStorage.setItem('bloodBankUser', JSON.stringify(userSession));
-      } catch (err) {
-        console.error('Storage error:', err);
-      }
-
-      // Redirect directly to the appropriate dashboard
-      if (role === 'admin') {
-        window.location.href = 'admin-dashboard.html';
+      const form = document.getElementById('loginForm');
+      if (window.validateFormAndRedirectTo404) {
+        window.validateFormAndRedirectTo404(form, e);
       } else {
-        window.location.href = 'donor-dashboard.html';
+        window.location.href = '404.html';
       }
     }
 
     // Sign Up Form Submit
     function handleSignupSubmit(e) {
       e.preventDefault();
-      const role = document.getElementById('signupRole').value;
-      const email = document.getElementById('signupEmail').value.trim();
-      const password = document.getElementById('signupPassword').value;
-      const confirmPassword = document.getElementById('signupConfirmPassword').value;
-      const mismatchMsg = document.getElementById('passwordMismatchMsg');
-
-      if (password !== confirmPassword) {
-        mismatchMsg.style.display = 'block';
-        document.getElementById('signupConfirmPassword').focus();
-        return;
-      }
-      mismatchMsg.style.display = 'none';
-
-      const roleName = role === 'admin' ? 'Admin' : 'Donor';
-      const userSession = {
-        email: email,
-        role: role,
-        name: role === 'admin' ? 'Admin Officer' : 'Registered Donor',
-        loginTime: new Date().toISOString()
-      };
-      try {
-        localStorage.setItem('bloodBankUser', JSON.stringify(userSession));
-      } catch (err) {
-        console.error('Storage error:', err);
-      }
-
-      // Redirect directly to the appropriate dashboard
-      if (role === 'admin') {
-        window.location.href = 'admin-dashboard.html';
+      const form = document.getElementById('signupForm');
+      if (window.validateFormAndRedirectTo404) {
+        window.validateFormAndRedirectTo404(form, e);
       } else {
-        window.location.href = 'donor-dashboard.html';
+        window.location.href = '404.html';
       }
     }
 
@@ -331,5 +289,9 @@
       switchToMode('signup');
     }
   </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
